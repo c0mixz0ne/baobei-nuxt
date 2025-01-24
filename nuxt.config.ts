@@ -11,5 +11,15 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+  modules: ['vue-yandex-maps/nuxt'],
+  yandexMaps: {
+    apikey: process.env.VITE_YMAPKEY,
+  },
+  runtimeConfig: {
+    public: {
+      ymapkey: process.env.VITE_YMAPKEY
+    }
   }
+  
 })
