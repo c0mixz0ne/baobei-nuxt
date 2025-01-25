@@ -20,7 +20,7 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
                                 английского открывает двери к новым знаниям, культурам и
                                 возможностям.
                             </p>
-                            <RouterLink class="card-link" to="/program">Подробнее →</RouterLink>
+                            <NuxtLink class="card-link" to="/program">Подробнее →</NuxtLink>
                         </div>
                     </div>
                 </li>
@@ -34,7 +34,7 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
                                 ребенка. Она обеспечивает ему необходимый запас знаний и навыков для
                                 успешного старта в школе и в жизни.
                             </p>
-                            <RouterLink class="card-link" to="/program">Подробнее →</RouterLink>
+                            <NuxtLink class="card-link" to="/program">Подробнее →</NuxtLink>
                         </div>
                     </div>
                 </li>
@@ -48,7 +48,7 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
                                 культуры, сознания и сердца народа, который воплощает в себе
                                 богатство и мудрость тысячелетий.
                             </p>
-                            <RouterLink class="card-link" to="/program">Подробнее →</RouterLink>
+                            <NuxtLink class="card-link" to="/program">Подробнее →</NuxtLink>
                         </div>
                     </div>
                 </li>
@@ -63,7 +63,7 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
                                 трудности. В нашем центре реализуется подготовка к ОГЭ, ЕГЭ по
                                 математике и русскому языку
                             </p>
-                            <RouterLink class="card-link" to="/program">Подробнее →</RouterLink>
+                            <NuxtLink class="card-link" to="/program">Подробнее →</NuxtLink>
                         </div>
                     </div>
                 </li>

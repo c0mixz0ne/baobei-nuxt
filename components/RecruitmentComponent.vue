@@ -5,13 +5,14 @@
 // const handlerAction = () => {
 //     smoothScroll("#form");
 // }
+// Uncomment if use scroll button
 </script>
 <template>
     <section class="recruitment">
         <div class="image-container">
             <h2>Набор в группы на 2025-2026 учебный год</h2>
         </div>
-        <RouterLink class="button-link" to="/group">Запись на занятия</RouterLink>
+        <NuxtLink class="button-link" to="/group">Запись на занятия</NuxtLink>
         <!-- <ButtonComponent @action="handlerAction"> Запись на занятия </ButtonComponent> -->
     </section>
 </template>
@@ -66,6 +67,11 @@
 @include breakpoint(xs) {
     .recruitment {
         padding: 0;
+
+        .image-container {
+            height: 40svh;
+            min-height: 200px;
+        }
     }
 }
 </style>

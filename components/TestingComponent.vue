@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 import ContainerComponent from './layout/ContainerComponent.vue'
 import ButtonComponent from './ButtonComponent.vue'
-import { formatName, formatPhone } from '@/helpers/formatInput'
-import { validateName, validatePhone } from '@/helpers/validateInput'
+import { formatName, formatPhone } from '@/composables/formatInput'
+import { validateName, validatePhone } from '@/composables/validateInput'
 
 const typeEducation = ref<never[]>([])
 const yearsOld = ref<never[]>([])
@@ -16,6 +16,7 @@ const studentWishes = ref<any>('')
 const errorName = ref<string | undefined>('')
 const errorPhone = ref<string | undefined>('')
 const formError = ref(false)
+const formSended = ref(false)
 
 // TODO: fix typescript types
 const setCheckbox = (event: any, question: any, option: string) => {
@@ -128,6 +129,7 @@ const submitForm = () => {
         'Ваши пожелания': studentWishes.value.length ? studentWishes.value : 'Не указано'
     }
 
+    formSended.value = true;
     console.log(formData)
 
     // Reset form
@@ -143,10 +145,16 @@ const submitForm = () => {
 
     document.querySelectorAll('.check[type=checkbox]:checked').forEach((input: any) => {
         input.checked = false
+        if (input.parentElement.querySelector('.custom')) {
+            input.parentElement.querySelector('.custom').value = ''
+        }  
     })
 
     document.querySelectorAll('.check[name=radio]:checked').forEach((input: any) => {
         input.checked = false
+        if (input.parentElement.querySelector('.custom')) {
+            input.parentElement.querySelector('.custom').value = ''
+        }
     })
 }
 
@@ -514,6 +522,9 @@ const validateQuestion = () => {
                 <span v-if="formError" class="form-error"
                     >Пожалуйста, заполните все обязательные поля</span
                 >
+                <span v-if="formSended" class="form-submit"
+                    >Спасибо, ваша заявка принята, наш менеджер свяжется с Вами в ближайшее время</span
+                >
             </form>
         </ContainerComponent>
     </section>
@@ -769,6 +780,13 @@ const validateQuestion = () => {
             padding: 0 12px;
             margin-top: 20px;
             color: var(--error);
+            display: block;
+            text-align: center;
+        }
+        .form-submit {
+            padding: 0 12px;
+            margin-top: 20px;
+            color: var(--success);
             display: block;
             text-align: center;
         }

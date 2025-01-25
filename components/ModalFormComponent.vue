@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref } from 'vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
-import { formatName, formatPhone } from '@/helpers/formatInput'
-import { validateName, validatePhone } from '@/helpers/validateInput'
+import { formatName, formatPhone } from '@/composables/formatInput'
+import { validateName, validatePhone } from '@/composables/validateInput'
 import { useModalStore } from '@/stores/modal'
 
 onMounted(() => (document.body.style.overflow = 'hidden'))

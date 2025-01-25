@@ -20,6 +20,10 @@ const scrollHandler = () => {
     }
 }
 
+const inDev = () => {
+    alert("Личный кабинет в разработке")
+}
+
 onMounted(() => {
     resizeHandler()
     window.addEventListener('resize', resizeHandler, { passive: true })
@@ -50,7 +54,7 @@ onUnmounted(() => {
                         <NuxtLink to="/group">Набор</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/login">Войти</NuxtLink>
+                        <NuxtLink @click="inDev">Войти</NuxtLink>
                     </li>
                 </ul>
                 <ul class="mobile">
@@ -80,7 +84,7 @@ onUnmounted(() => {
                         <NuxtLink to="/group" @click="toggleMobileMenu">Набор</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/login" @click="toggleMobileMenu">Войти</NuxtLink>
+                        <NuxtLink @click="inDev">Войти</NuxtLink>
                     </li>
                 </ul>
             </div>
@@ -122,6 +126,7 @@ onUnmounted(() => {
                     a {
                         text-decoration: none;
                         color: var(--black);
+                        cursor: pointer;
                     }
 
                     a.router-link-active {
@@ -167,6 +172,7 @@ onUnmounted(() => {
                 a {
                     text-decoration: none;
                     color: var(--black);
+
                 }
                 a.router-link-active {
                     color: var(--pink);

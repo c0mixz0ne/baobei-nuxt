@@ -12,7 +12,10 @@ export default defineNuxtConfig({
       }
     }
   },
-  modules: ['vue-yandex-maps/nuxt'],
+  modules: [
+    'vue-yandex-maps/nuxt',
+    '@pinia/nuxt',
+  ],
   yandexMaps: {
     apikey: process.env.VITE_YMAPKEY,
   },

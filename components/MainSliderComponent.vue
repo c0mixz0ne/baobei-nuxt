@@ -155,6 +155,7 @@ export default {
 @include breakpoint(sm) {
     .slider {
         height: 80svh;
+        min-height: 300px;
     }
     .content {
         .title {

@@ -12,9 +12,9 @@ const isLoginPage = computed(() => {
 <template>
     <footer v-if="!isLoginPage" class="footer">
         <ContainerComponent>
-            <RouterLink to="/">
+            <NuxtLink to="/">
                 <img class="logo" src="@/assets/images/logo.png" alt="Логотип" />
-            </RouterLink>
+            </NuxtLink>
             <p>
                 © {{ new Date().getFullYear() }} Baobei
                 <span>dev by

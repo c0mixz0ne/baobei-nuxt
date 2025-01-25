@@ -13,6 +13,9 @@ const modalStore = useModalStore()
 
 const isModalShow = computed(() => modalStore.getIsShow)
 
+useHead({
+  title: 'Baobei : Программы',
+})
 </script>
 <template>
     <WelcomeComponent class="program">
