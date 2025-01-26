@@ -9,11 +9,11 @@ import {
     YandexMapDefaultFeaturesLayer,
     YandexMapControlButton
 } from 'vue-yandex-maps'
+import type { BehaviorType } from '@yandex/ymaps3-types';
+
 
 import type { YMap, LngLat } from '@yandex/ymaps3-types'
 import logo from '@/assets/images/logo.png'
-
-
 
 const baobeicoordsa: number = import.meta.env.VITE_BAOBEI_COORDS_A
 const baobeicoordsb: number = import.meta.env.VITE_BAOBEI_COORDS_B
@@ -47,6 +47,8 @@ const goTaxi = () => {
     // Открытие ссылки в новом окне
     window.open(url, '_blank')
 }
+
+const BEHAVIOR: BehaviorType[] = ['drag', 'scrollZoom', 'dblClick', 'mouseRotate', 'mouseTilt'];
 </script>
 <template>
     <section class="navigation">
@@ -68,7 +70,7 @@ const goTaxi = () => {
                     center: [baobeicoordsa, baobeicoordsb],
                     zoom: 15
                 },
-                behaviors: ['dblClick'] // Отключаем scrollZoom
+                behaviors: BEHAVIOR
             }"
         >
             <yandex-map-default-scheme-layer />
