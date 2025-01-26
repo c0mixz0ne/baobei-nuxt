@@ -24,10 +24,6 @@ const formatPhoneHandler = () => {
 }
 
 const submitForm = async () => {
-    if (isSubmitting.value) return;
-
-    isSubmitting.value = true;
-
     errorName.value = validateName(name)
     errorPhone.value = validatePhone(phone)
 
@@ -48,13 +44,9 @@ const submitForm = async () => {
             
             formSended.value = true;
         } catch(error) {
-            console.error('Ошибка при отправке данных:', error);
+            console.error('Error send data:', error);
         }
-        finally {
-            isSubmitting.value = false;
-        }
-    }
-    else {
+    } else {
         console.warn('Input includes errors');
     }
 
