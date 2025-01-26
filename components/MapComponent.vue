@@ -42,13 +42,8 @@ const goTaxi = () => {
     const endCoords = [baobeicoordsb, baobeicoordsa] // Координаты конечного пункта маршрута Baobei
 
     // Формируем URL для Яндекс.Навигатора
-    const url = `https://3.redirect.appmetrica.yandex.com/route?
-                 &end-lat=${endCoords[0]}
-                 &end-lon=${endCoords[1]}
-                 &tariffClass=business
-                 &ref=baobei-online.ru
-                 &appmetrica_tracking_id=25395763362139037`
-
+    const url = `https://3.redirect.appmetrica.yandex.com/route?&end-lat=${endCoords[0]}&end-lon=${endCoords[1]}&tariffClass=business&ref=baobei-online.ru&appmetrica_tracking_id=1178268795219780156`
+                 
     // Открытие ссылки в новом окне
     window.open(url, '_blank')
 }
@@ -73,7 +68,7 @@ const goTaxi = () => {
                     center: [baobeicoordsa, baobeicoordsb],
                     zoom: 15
                 },
-                behaviors: ['drag', 'dblClick'] // Отключаем scrollZoom
+                behaviors: ['dblClick'] // Отключаем scrollZoom
             }"
         >
             <yandex-map-default-scheme-layer />
