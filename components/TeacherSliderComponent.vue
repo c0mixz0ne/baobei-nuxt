@@ -161,6 +161,7 @@ const prev = () => carouselRef.value.prev()
             height: 30px;
             border-radius: 50%;
             transform: translateY(-50%);
+            z-index: 1;
             cursor: pointer;
             svg {
                 width: 14px;
