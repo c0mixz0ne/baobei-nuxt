@@ -3,6 +3,8 @@ import Header from '@/components/HeaderComponent.vue'
 import Main from '@/components/MainComponent.vue'
 import Footer from '@/components/FooterComponent.vue'
 
+import ogImage from '@/assets/images/background3.jpg'
+
 useHead({
   title: 'Baobei',
   htmlAttrs: {
@@ -15,7 +17,7 @@ useSeoMeta({
   ogTitle: 'Школа иностранных языков Baobei',
   description: 'Школа иностранных языков в Новосибирске Baobei',
   ogDescription: 'Школа иностранных языков в Новосибирске Baobei',
-  ogImage: '@/assets/images/background3.jpg',
+  ogImage: ogImage,
 })
 </script>
 
