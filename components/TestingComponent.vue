@@ -101,7 +101,7 @@ const studentWishesComputed = () => {
     studentWishes.value = studentWishes.value.charAt(0).toUpperCase() + studentWishes.value.slice(1)
 }
 
-const submitForm = () => {
+const submitForm = async () => {
     validateQuestion()
 
     errorName.value = validateName(studentName)
@@ -129,19 +129,33 @@ const submitForm = () => {
         'Ваши пожелания': studentWishes.value.length ? studentWishes.value : 'Не указано'
     }
 
-    formSended.value = true;
-    console.log(formData)
+    try {
+        const response = await useFetch('/api/lead', {
+            method: 'POST',
+            body: {
+                    'name': studentName,
+                    'phone': studentPhone,
+                    'note': JSON.stringify(formData)
+                },
+            watch: false
+            })
 
-    // Reset form
-    formError.value = false
+            // Reset form
+            formError.value = false
 
-    typeEducation.value = []
-    yearsOld.value = []
-    formatLesson.value = []
-    durationStudy.value = []
-    studentName.value = ''
-    studentPhone.value = ''
-    studentWishes.value = ''
+            typeEducation.value = []
+            yearsOld.value = []
+            formatLesson.value = []
+            durationStudy.value = []
+            studentName.value = ''
+            studentPhone.value = ''
+            studentWishes.value = ''
+            
+            formSended.value = true;
+            console.log('Ответ от сервера:', response.data);
+        } catch(error) {
+            console.error('Ошибка при отправке данных:', error);
+        }
 
     document.querySelectorAll('.check[type=checkbox]:checked').forEach((input: any) => {
         input.checked = false

@@ -21,7 +21,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      ymapkey: process.env.VITE_YMAPKEY
+      ymapkey: process.env.VITE_YMAPKEY,
+      apitoken: process.env.VITE_ALFACRM_TOKEN
     }
   }
   

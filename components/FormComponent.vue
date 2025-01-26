@@ -11,19 +11,9 @@ const phone = ref('')
 
 const errorName = ref<string | undefined>('')
 const errorPhone = ref<string | undefined>('')
+const isSubmitting = ref(false);
 
-const submitForm = () => {
-    errorName.value = validateName(name)
-    errorPhone.value = validatePhone(phone)
-
-    if (errorName.value || errorPhone.value) {
-        return
-    }
-
-    alert('submit')
-    name.value = ''
-    phone.value = ''
-}
+const formSended = ref(false)
 
 const formatNameHandler = () => {
     name.value = formatName(name)
@@ -31,6 +21,44 @@ const formatNameHandler = () => {
 
 const formatPhoneHandler = () => {
     phone.value = formatPhone(phone)
+}
+
+const submitForm = async () => {
+    if (isSubmitting.value) return;
+
+    isSubmitting.value = true;
+
+    errorName.value = validateName(name)
+    errorPhone.value = validatePhone(phone)
+
+    if (!errorName.value || !errorPhone.value) {
+        try {
+            const response = await useFetch('/api/lead', {
+                method: 'POST',
+                body: {
+                    'name': name,
+                    'phone': phone,
+                    'source': 'Заявка с формы на главной'
+                },
+                watch: false
+            })
+
+            name.value = ''
+            phone.value = ''  
+            
+            formSended.value = true;
+        } catch(error) {
+            console.error('Ошибка при отправке данных:', error);
+        }
+        finally {
+            isSubmitting.value = false;
+        }
+    }
+    else {
+        console.warn('Input includes errors');
+    }
+
+    return true
 }
 </script>
 <template>
@@ -61,6 +89,7 @@ const formatPhoneHandler = () => {
                 </div>
                 <ButtonComponent type="submit"> Заказать звонок </ButtonComponent>
             </form>
+            <span v-if="formSended" class="form-submit">Спасибо, ваша заявка принята, наш менеджер свяжется с Вами в ближайшее время</span>
         </ContainerComponent>
     </section>
 </template>
@@ -71,6 +100,13 @@ const formatPhoneHandler = () => {
     background-size: cover;
     background-position: center center;
     padding: 70px 0;
+    .form-submit {
+        padding: 0 12px;
+        margin-top: 20px;
+        color: var(--success);
+        display: block;
+        text-align: center;
+    }
     .container {
         h2 {
             font-size: 42px;
