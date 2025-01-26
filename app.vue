@@ -6,7 +6,7 @@ import Footer from '@/components/FooterComponent.vue'
 useHead({
   title: 'Baobei',
   htmlAttrs: {
-    lang: "en",
+    lang: "ru",
   },
 })
 
