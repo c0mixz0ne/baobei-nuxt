@@ -81,7 +81,7 @@ const submitForm = async () => {
                 </div>
                 <ButtonComponent type="submit"> Заказать звонок </ButtonComponent>
             </form>
-            <span v-if="formSended" class="form-submit">Спасибо, ваша заявка принята, наш менеджер свяжется с Вами в ближайшее время</span>
+            <span v-if="formSended" class="form-submit">Спасибо, ваша заявка принята, наш адмиинистратор свяжется с Вами в ближайшее время</span>
         </ContainerComponent>
     </section>
 </template>
