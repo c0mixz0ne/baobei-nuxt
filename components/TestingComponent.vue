@@ -519,7 +519,7 @@ const validateQuestion = () => {
                         v-model="studentPhone"
                         name="phone"
                         class="long-input"
-                        type="text"
+                        type="tel"
                         @input="formatPhoneHandler"
                     />
                     <label v-if="errorPhone" for="phone">{{ errorPhone }}</label>
