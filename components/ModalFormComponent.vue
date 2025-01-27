@@ -34,7 +34,7 @@ const submitForm = async () => {
                 body: {
                     'name': name,
                     'phone': phone,
-                    'source': 'Заявка с формы на главной'
+                    'source': 'Заявка со страницы программы'
                 },
                 watch: false
             })
