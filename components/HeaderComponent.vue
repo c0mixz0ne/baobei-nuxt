@@ -98,6 +98,7 @@ onUnmounted(() => {
     padding: 10px 0;
     border-bottom: 1px solid var(--pink);
     position: sticky;
+    z-index: 5;
     top: 0;
     .logo {
         width: 62px;

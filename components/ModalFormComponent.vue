@@ -120,6 +120,7 @@ const formatPhoneHandler = () => {
         padding: 20px;
         color: var(--black);
         border-radius: 5px;
+        z-index: 10;
 
         form {
             display: flex;
