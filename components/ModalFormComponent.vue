@@ -17,22 +17,40 @@ const close = () => {
 
 const name = ref('')
 const phone = ref('')
+const formSended = ref(false)
 
 // TODO: fix types
 const errorName = ref<string | undefined>('')
 const errorPhone = ref<string | undefined>('')
 
-const submitForm = () => {
+const submitForm = async () => {
     errorName.value = validateName(name)
     errorPhone.value = validatePhone(phone)
 
-    if (errorName.value || errorPhone.value) {
-        return
+    if (!errorName.value || !errorPhone.value) {
+        try {
+            const response = await useFetch('/api/lead', {
+                method: 'POST',
+                body: {
+                    'name': name,
+                    'phone': phone,
+                    'source': 'Заявка с формы на главной'
+                },
+                watch: false
+            })
+
+            name.value = ''
+            phone.value = ''  
+            
+            formSended.value = true;
+        } catch(error) {
+            console.error('Error send data:', error);
+        }
+    } else {
+        console.warn('Input includes errors');
     }
 
-    alert('submit')
-    name.value = ''
-    phone.value = ''
+    return true
 }
 
 const formatNameHandler = () => {
@@ -76,6 +94,7 @@ const formatPhoneHandler = () => {
                     <label v-if="errorPhone" for="phone">{{ errorPhone }}</label>
                 </div>
                 <ButtonComponent type="submit"> Отправить </ButtonComponent>
+                <span v-if="formSended" class="form-submit">Спасибо, ваша заявка принята, наш адмиинистратор свяжется с Вами в ближайшее время</span>
             </form>
         </div>
     </div>
@@ -126,6 +145,13 @@ const formatPhoneHandler = () => {
                     width: 100%;
                     border: 1px solid var(--pink);
                 }
+            }
+            .form-submit {
+                padding: 0 12px;
+                margin-top: 20px;
+                color: var(--success);
+                display: block;
+                text-align: center;
             }
         }
 

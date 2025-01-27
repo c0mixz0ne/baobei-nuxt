@@ -97,6 +97,8 @@ onUnmounted(() => {
     height: 90px;
     padding: 10px 0;
     border-bottom: 1px solid var(--pink);
+    position: sticky;
+    top: 0;
     .logo {
         width: 62px;
         height: 70px;

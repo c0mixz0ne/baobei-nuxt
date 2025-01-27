@@ -85,8 +85,9 @@ const setRadio = (event: any, question: any, option: string) => {
     question[0] = option
 }
 
-const customRadioHandler = (event: any, question: any) => {
+const customRadioHandler = (event: any, question: any) => {    
     question[0] = `Свой вариант: ${event.target.value.length ? event.target.value : 'Не указан'}`
+    event.target.value = 'Не указан';
 }
 
 const formatNameHandler = () => {
@@ -275,6 +276,7 @@ const validateQuestion = () => {
                                         type="text"
                                         maxlength="250"
                                         @blur="customCheckboxHandler($event, typeEducation)"
+                                        @focus=""
                                     />
                                 </div>
                             </label>
@@ -676,6 +678,7 @@ const validateQuestion = () => {
                             border-bottom: 1px solid var(--black);
                             width: 100%;
                             font-size: var(--font-size);
+                            border-radius: 0;
                             &.show {
                                 display: block;
                             }
