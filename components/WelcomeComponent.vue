@@ -1,8 +1,3 @@
-<script setup lang="ts">
-    const height = ref(document.documentElement.clientHeight)
-    console.log(height);
-    
-</script>
 <template>
     <section class="welcome">
         <slot> Данные не получены </slot>
