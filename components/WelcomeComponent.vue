@@ -10,7 +10,6 @@
     align-items: center;
     justify-content: center;
     height: calc(100vh - 90px);
-    max-height: calc(100vh - 90px);
     min-height: 250px;
     background-image: linear-gradient(rgba(44, 55, 69, 0.8), rgba(44, 55, 69, 0.6)),
         url(@/assets/images/background1.jpg);
