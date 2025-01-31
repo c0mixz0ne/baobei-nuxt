@@ -15,6 +15,7 @@ export default defineNuxtConfig({
   modules: [
     'vue-yandex-maps/nuxt',
     '@pinia/nuxt',
+    '~/modules/sitemap'
   ],
   yandexMaps: {
     apikey: process.env.VITE_YMAPKEY,
@@ -24,6 +25,8 @@ export default defineNuxtConfig({
       ymapkey: process.env.VITE_YMAPKEY,
       apitoken: process.env.VITE_ALFACRM_TOKEN
     }
+  },
+  sitemap: {
+    hostname: 'https://baobei-online.ru',
   }
-  
 })
