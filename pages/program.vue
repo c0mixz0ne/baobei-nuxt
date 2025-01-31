@@ -107,4 +107,4 @@ useHead({
     <ConnectBlock />
     <ModalFormComponent v-if="isModalShow" />
 </template>
-<style land="scss" scoped></style>
+<style lang="scss" scoped></style>

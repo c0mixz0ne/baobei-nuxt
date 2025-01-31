@@ -23,7 +23,7 @@ useHead({
 		</ContainerComponent>
 	</section>
 </template>
-<style land="scss" scoped>
+<style lang="scss" scoped>
 .error {
 	padding: 20px;
 	height: 100svh;

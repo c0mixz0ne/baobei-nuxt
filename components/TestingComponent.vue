@@ -546,7 +546,7 @@ const validateQuestion = () => {
     </section>
 </template>
 
-<style land="scss" scoped>
+<style lang="scss" scoped>
 .testing {
     padding: 100px 0;
 

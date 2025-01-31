@@ -2,7 +2,7 @@
     --white: rgb(255, 255, 255);
     --white-opacity: rgb(255, 255, 255, 0.8);
     --black: rgb(0, 0, 0);
-    --black-opacity: rgba(0, 0, 0, 0.5);
+    --black-opacity: rgba(0, 0, 0, 0.8);
     --pink: rgb(218, 168, 168);
     --pink-opacity: rgba(218, 168, 168, 0.5);
     --gray: rgb(245, 247, 251);
@@ -14,6 +14,8 @@
     --connect-background: rgb(235, 235, 235);
     --error: rgb(227, 11, 11);
     --success: rgb(63, 220, 63);
+
+    --transition: .3s ease;
 
     --font-size: 16px;
 }

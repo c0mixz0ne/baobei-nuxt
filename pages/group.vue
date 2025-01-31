@@ -12,4 +12,4 @@ useHead({
     </WelcomeComponent>
     <TestingComponent />
 </template>
-<style land="scss" scoped></style>
+<style lang="scss" scoped></style>
