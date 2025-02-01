@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import ContainerComponent from '@/components/layout/ContainerComponent.vue'
+import { useModalStore } from '@/stores/modal'
 
 const mobileMenuIsOpen = ref<boolean>(false)
 const isWhiteHeader = ref<boolean>(false)
+
+const modalStore = useModalStore()
 
 const toggleMobileMenu = () => {
     mobileMenuIsOpen.value = !mobileMenuIsOpen.value
@@ -21,6 +24,12 @@ const scrollHandler = () => {
     }
 
     isWhiteHeader.value = window.scrollY !== 0;
+
+    if(isWhiteHeader.value) {
+        modalStore.setIsInfoShow(true)
+    } else {
+        modalStore.setIsInfoShow(false)
+    }
 }
 
 const inDev = () => {
@@ -215,7 +224,7 @@ onUnmounted(() => {
 
         nav {
             width: 100%;
-            margin-left: 10px;
+            margin-left: 20px;
 
             ul {
                 display: flex;

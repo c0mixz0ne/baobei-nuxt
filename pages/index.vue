@@ -9,7 +9,7 @@ import FormComponent from '@/components/FormComponent.vue'
 import MapComponent from '@/components/MapComponent.vue'
 
 useHead({
-  title: 'Baobei : Главная',
+  title: 'Центр иностранных языков и детского развития Baobei',
 })
 
 </script>
@@ -28,4 +28,7 @@ useHead({
     <TeacherComponent />
     <FormComponent />
     <MapComponent />
+    <ModalInfoComponent>
+      Вступай в нашу группу телеграм! Всегда актуальные новости, конкурсы и многое другое.
+    </ModalInfoComponent>
 </template>

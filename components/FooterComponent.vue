@@ -59,7 +59,7 @@ const isLoginPage = computed(() => {
 <style lang="scss" scoped>
 @font-face {
     font-family: 'AudioNugget';
-    src: url('~/assets/fonts/AudioNugget.ttf');
+    src: url('@/assets/fonts/AudioNugget.ttf');
 }
 
 .footer {

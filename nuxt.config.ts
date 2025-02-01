@@ -2,12 +2,12 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  css: ['~/assets/css/main.scss'],
+  css: ['@/assets/css/main.scss'],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/css/_mixins.scss" as *;' // Mixins
+          additionalData: '@use "@/assets/css/_mixins.scss" as *;' // Mixins
         }
       }
     }
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   modules: [
     'vue-yandex-maps/nuxt',
     '@pinia/nuxt',
-    '~/modules/sitemap'
+    '@/modules/sitemap'
   ],
   yandexMaps: {
     apikey: process.env.VITE_YMAPKEY,
