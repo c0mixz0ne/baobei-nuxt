@@ -10,6 +10,7 @@ import teacher2 from '@/assets/images/sm.jpg'
 import teacher3 from '@/assets/images/ba.jpg'
 import teacher4 from '@/assets/images/avl.jpg'
 import teacher5 from '@/assets/images/sk.jpg'
+import teacher6 from '@/assets/images/vv.jpg'
 
 // Carousel configuration
 const config = {
@@ -86,6 +87,12 @@ const cards = [
         photo: teacher5,
         name: 'Сафонова Кристина',
         text: 'Преподаватель занятий по русскому языку'
+    },
+    {
+        id: 6,
+        photo: teacher6,
+        name: 'Воробьёва Виктория',
+        text: 'Преподаватель индивидуальных и групповых занятий по английскому и китайскому языку'
     }
 ]
 
