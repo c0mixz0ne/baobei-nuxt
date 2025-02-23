@@ -23,6 +23,7 @@ useHead(() => ({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "Organization",
         "name": "Центр иностранных языков и детского развития Baobei",
         "description": "Центр иностранных языков и детского развития Baobei в Новосибирске предлагает курсы английского, китайского и других языков для детей и взрослых.",
         "address": {
