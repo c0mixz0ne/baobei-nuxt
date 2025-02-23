@@ -5,12 +5,20 @@ import Footer from '@/components/FooterComponent.vue'
 
 import ogImage from '@/assets/images/background3.jpg'
 
-useHead({
+const route = useRoute()
+
+useHead(() => ({
   title: 'Baobei',
   htmlAttrs: {
     lang: "ru",
   },
-})
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://baobei-online' + route.path,
+    },
+  ],
+}))
 
 useSeoMeta({
   title: 'Школа иностранных языков Baobei',
