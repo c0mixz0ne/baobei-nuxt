@@ -18,6 +18,34 @@ useHead(() => ({
       href: 'https://baobei-online' + route.path,
     },
   ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LanguageSchool",
+        "name": "Центр иностранных языков и детского развития Baobei",
+        "description": "Центр иностранных языков и детского развития Baobei в Новосибирске предлагает курсы английского, китайского и других языков для детей и взрослых.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ул. Семьи Шамшиных, 18/1",
+          "addressLocality": "Новосибирск",
+          "postalCode": "630099",
+          "addressCountry": "RU"
+        },
+        "telephone": "+7 (913) 917-86-16",
+        "email": "baobei.nsk@gmail.com",
+        "url": "https://baobei-online.ru",
+        "openingHours": "Mo-Sa 09:00-21:00",
+        "priceRange": "$",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "25"
+        }
+      })
+    }
+  ]
 }))
 
 useSeoMeta({
