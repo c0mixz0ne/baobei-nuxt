@@ -36,8 +36,6 @@ useHead(() => ({
         "telephone": "+7 (913) 917-86-16",
         "email": "baobei.nsk@gmail.com",
         "url": "https://baobei-online.ru",
-        "openingHours": "Mo-Sa 09:00-21:00",
-        "priceRange": "$",
       })
     }
   ]
