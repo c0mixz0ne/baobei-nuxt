@@ -23,7 +23,6 @@ useHead(() => ({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "LanguageSchool",
         "name": "Центр иностранных языков и детского развития Baobei",
         "description": "Центр иностранных языков и детского развития Baobei в Новосибирске предлагает курсы английского, китайского и других языков для детей и взрослых.",
         "address": {
@@ -38,11 +37,6 @@ useHead(() => ({
         "url": "https://baobei-online.ru",
         "openingHours": "Mo-Sa 09:00-21:00",
         "priceRange": "$",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "25"
-        }
       })
     }
   ]
