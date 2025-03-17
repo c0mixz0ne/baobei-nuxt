@@ -19,16 +19,33 @@ const name = ref('')
 const phone = ref('')
 const formSended = ref(false)
 
+const personalData = ref(false)
+const personalDataError = ref(false)
+const isFormSubmitted = ref(false)
+
 // TODO: fix types
 const errorName = ref<string | undefined>('')
 const errorPhone = ref<string | undefined>('')
 
 const submitForm = async () => {
+    isFormSubmitted.value = true
+
+    if (personalData.value == false) {
+        personalDataError.value = true
+
+        errorName.value = ''
+        errorPhone.value = ''
+
+        return
+    } else {
+        personalDataError.value = false
+    }
+
     errorName.value = validateName(name)
     errorPhone.value = validatePhone(phone)
 
-    if (!errorName.value || !errorPhone.value) {
-        try {
+    if (!errorName.value && !errorPhone.value) {
+        try {  
             const response = await useFetch('/api/lead', {
                 method: 'POST',
                 body: {
@@ -42,12 +59,12 @@ const submitForm = async () => {
             name.value = ''
             phone.value = ''  
             
-            formSended.value = true;
+            formSended.value = true
         } catch(error) {
-            console.error('Error send data:', error);
+            console.error('Error send data:', error)
         }
     } else {
-        console.warn('Input includes errors');
+        console.warn('Input includes errors')
     }
 
     return true
@@ -60,6 +77,12 @@ const formatNameHandler = () => {
 const formatPhoneHandler = () => {
     phone.value = formatPhone(phone)
 }
+
+watch(personalData, (newValue) => {
+    if (isFormSubmitted.value) {
+        personalDataError.value = !newValue
+    }
+})
 </script>
 <template>
     <div class="modal-wrapper" @click="close">
@@ -94,6 +117,20 @@ const formatPhoneHandler = () => {
                     <label v-if="errorPhone" for="phone">{{ errorPhone }}</label>
                 </div>
                 <ButtonComponent type="submit"> Отправить </ButtonComponent>
+                <div class="personal-data">
+                    <label for="personal">
+                        <input
+                            id="personal"
+                            class="check"
+                            type="checkbox"
+                            name="checkbox"
+                            v-model="personalData"
+                        />
+                        <div class="checkbox-indicator"></div>
+                        <span class="personal-text">Согласие на обработку персональных данных</span>
+                        <span class="personal-error" v-if="isFormSubmitted && personalDataError">Необходимо согласие на обработку персональных данных</span>
+                    </label>
+                </div>
                 <span v-if="formSended" class="form-submit">Спасибо, ваша заявка принята, наш адмиинистратор свяжется с Вами в ближайшее время</span>
             </form>
         </div>
@@ -153,6 +190,66 @@ const formatPhoneHandler = () => {
                 color: var(--success);
                 display: block;
                 text-align: center;
+            }
+            .personal-data {
+                width: 100%;
+                position: relative;
+
+                label {
+                    display: inline-flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    cursor: pointer;
+
+                    .check {
+                        opacity: 0;
+                        z-index: -1;
+                        position: absolute;
+
+                        &:checked ~ .checkbox-indicator {
+                            opacity: 1;
+
+                            &::after {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .checkbox-indicator {
+                        min-width: 20px;
+                        max-width: 20px;
+                        min-height: 20px;
+                        max-height: 20px;
+                        border: 2px solid var(--black);
+                        position: relative;
+                        margin-right: 10px;
+                        opacity: 0.5;
+                        flex: 1;
+
+                        &::after {
+                            display: none;
+                            border: solid var(--pink);
+                            border-width: 0 2px 2px 0;
+                            content: '';
+                            height: 24px;
+                            left: 4px;
+                            position: absolute;
+                            top: -9px;
+                            transform: rotate(45deg);
+                            width: 11px;
+                        }
+                    }
+
+                    .personal-text {
+                        color: var(--black);
+                        flex: 1;
+                    }
+
+                    .personal-error {
+                        margin-top: 5px;
+                        color: var(--error);
+                    }
+                }
             }
         }
 

@@ -18,6 +18,10 @@ const errorPhone = ref<string | undefined>('')
 const formError = ref(false)
 const formSended = ref(false)
 
+const personalData = ref(false)
+const personalDataError = ref(false)
+const isFormSubmitted = ref(false)
+
 // TODO: fix typescript types
 const setCheckbox = (event: any, question: any, option: string) => {
     if (event.target.checked) {
@@ -103,6 +107,16 @@ const studentWishesComputed = () => {
 }
 
 const submitForm = async () => {
+    isFormSubmitted.value = true
+
+    if (personalData.value == false) {
+        personalDataError.value = true
+        
+        return
+    } else {
+        personalDataError.value = false
+    }
+
     validateQuestion()
 
     errorName.value = validateName(studentName)
@@ -130,35 +144,46 @@ const submitForm = async () => {
         'Ваши пожелания': studentWishes.value.length ? studentWishes.value : 'Не указано'
     }
 
-    try {
-        const response = await useFetch('/api/lead', {
-            method: 'POST',
-            body: {
-                    'name': studentName,
-                    'phone': studentPhone,
-                    'note': JSON.stringify(formData)
-                },
-            watch: false
-            })
+    if (!errorName.value && !errorPhone.value) {
+        console.log('ins');
+        
+        try {
+            const response = await useFetch('/api/lead', {
+                method: 'POST',
+                body: {
+                        'name': studentName,
+                        'phone': studentPhone,
+                        'note': JSON.stringify(formData),
+                        'source': 'Заявка со страницы набора'
+                    },
+                watch: false
+                })
 
-            // Reset form
-            formError.value = false
+                // Reset form
+                formError.value = false
 
-            typeEducation.value = []
-            yearsOld.value = []
-            formatLesson.value = []
-            durationStudy.value = []
-            studentName.value = ''
-            studentPhone.value = ''
-            studentWishes.value = ''
-            
-            formSended.value = true;
-            console.log('Ответ от сервера:', response.data);
+                typeEducation.value = []
+                yearsOld.value = []
+                formatLesson.value = []
+                durationStudy.value = []
+                studentName.value = ''
+                studentPhone.value = ''
+                studentWishes.value = ''
+                personalData.value = false; 
+                personalDataError.value = false; 
+                isFormSubmitted.value = false; 
+                
+                formSended.value = true
+                console.log('Server response:', response.data)
         } catch(error) {
-            console.error('Ошибка при отправке данных:', error);
+            console.error('Error send data:', error)
         }
+    } else {
+        console.warn('Input includes errors')
+    }
 
     document.querySelectorAll('.check[type=checkbox]:checked').forEach((input: any) => {
+        if (input.id === 'personal') return
         input.checked = false
         if (input.parentElement.querySelector('.custom')) {
             input.parentElement.querySelector('.custom').value = ''
@@ -184,6 +209,12 @@ const validateQuestion = () => {
         }
     })
 }
+
+watch(personalData, (newValue) => {
+    if (isFormSubmitted.value) {
+        personalDataError.value = !newValue
+    }
+})
 </script>
 
 <template>
@@ -534,7 +565,22 @@ const validateQuestion = () => {
                         @input="studentWishesComputed"
                     />
                 </div>
+                <div class="personal-data">
+                    <label for="personal">
+                        <input
+                            id="personal"
+                            class="check"
+                            type="checkbox"
+                            name="checkbox"
+                            v-model="personalData"
+                        />
+                        <div class="checkbox-indicator"></div>
+                        <span class="personal-text">Согласие на обработку персональных данных</span>
+                        <span class="personal-error" v-if="isFormSubmitted && personalDataError">Необходимо согласие на обработку персональных данных</span>
+                    </label>
+                </div>
                 <ButtonComponent type="submit">Отправить форму</ButtonComponent>
+
                 <span v-if="formError" class="form-error"
                     >Пожалуйста, заполните все обязательные поля</span
                 >
@@ -800,12 +846,77 @@ const validateQuestion = () => {
             display: block;
             text-align: center;
         }
+
         .form-submit {
             padding: 0 12px;
             margin-top: 20px;
             color: var(--success);
             display: block;
             text-align: center;
+        }
+
+        .personal-data {
+                width: 100%;
+                position: relative;
+                margin-bottom: 20px;
+
+                label {
+                    display: inline-flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    cursor: pointer;
+
+                    .check {
+                        opacity: 0;
+                        z-index: -1;
+                        position: absolute;
+
+                        &:checked ~ .checkbox-indicator {
+                            opacity: 1;
+
+                            &::after {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .checkbox-indicator {
+                        min-width: 20px;
+                        max-width: 20px;
+                        min-height: 20px;
+                        max-height: 20px;
+                        border: 2px solid var(--black);
+                        position: relative;
+                        margin-right: 10px;
+                        opacity: 0.5;
+                        flex: 1;
+
+                        &::after {
+                            display: none;
+                            border: solid var(--pink);
+                            border-width: 0 2px 2px 0;
+                            content: '';
+                            height: 24px;
+                            left: 4px;
+                            position: absolute;
+                            top: -9px;
+                            transform: rotate(45deg);
+                            width: 11px;
+                        }
+                    }
+
+                    .personal-text {
+                        color: var(--black);
+                        flex: 1;
+                    }
+
+                    .personal-error {
+                        margin-top: 5px;
+                        color: var(--error);
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
         }
     }
 }

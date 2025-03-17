@@ -14,6 +14,6 @@
     cursor: pointer;
     font-weight: bold;
     width: 100%;
-    max-width: 250px;
+    max-width: 260px;
 }
 </style>

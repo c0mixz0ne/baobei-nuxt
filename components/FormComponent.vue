@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import ContainerComponent from '@/components/layout/ContainerComponent.vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 
@@ -11,9 +11,13 @@ const phone = ref('')
 
 const errorName = ref<string | undefined>('')
 const errorPhone = ref<string | undefined>('')
-const isSubmitting = ref(false);
-
+const isSubmitting = ref(false)
 const formSended = ref(false)
+
+const personalData = ref(false)
+const personalDataError = ref(false)
+const isFormSubmitted = ref(false)
+
 
 const formatNameHandler = () => {
     name.value = formatName(name)
@@ -24,10 +28,23 @@ const formatPhoneHandler = () => {
 }
 
 const submitForm = async () => {
+    isFormSubmitted.value = true
+
+    if (personalData.value == false) {
+        personalDataError.value = true
+
+        errorName.value = ''
+        errorPhone.value = ''
+
+        return
+    } else {
+        personalDataError.value = false
+    }
+
     errorName.value = validateName(name)
     errorPhone.value = validatePhone(phone)
 
-    if (!errorName.value || !errorPhone.value) {
+    if (!errorName.value && !errorPhone.value) {
         try {
             const response = await useFetch('/api/lead', {
                 method: 'POST',
@@ -42,16 +59,22 @@ const submitForm = async () => {
             name.value = ''
             phone.value = ''  
             
-            formSended.value = true;
+            formSended.value = true
         } catch(error) {
-            console.error('Error send data:', error);
+            console.error('Error send data:', error)
         }
     } else {
-        console.warn('Input includes errors');
+        console.warn('Input includes errors')
     }
 
     return true
 }
+
+watch(personalData, (newValue) => {
+    if (isFormSubmitted.value) {
+        personalDataError.value = !newValue
+    }
+})
 </script>
 <template>
     <section id="form" class="form">
@@ -80,6 +103,21 @@ const submitForm = async () => {
                     <label v-if="errorPhone" for="phone">{{ errorPhone }}</label>
                 </div>
                 <ButtonComponent type="submit"> Заказать звонок </ButtonComponent>
+                <div class="personal-data">
+                    <label for="personal">
+                        <input
+                            id="personal"
+                            class="check"
+                            type="checkbox"
+                            name="checkbox"
+                            v-model="personalData"
+                        />
+                        <div class="checkbox-indicator"></div>
+                        <span class="personal-text">Согласие на обработку персональных данных</span>
+                        <span class="personal-error" v-if="isFormSubmitted && personalDataError">Необходимо согласие на обработку персональных данных</span>
+                    </label>
+                </div>
+               
             </form>
             <span v-if="formSended" class="form-submit">Спасибо, ваша заявка принята, наш адмиинистратор свяжется с Вами в ближайшее время</span>
         </ContainerComponent>
@@ -120,10 +158,11 @@ const submitForm = async () => {
             margin: 0 auto;
             margin-top: 40px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             gap: 10px;
             .input-wrapper {
-                width: 33.3%;
+                flex: 1;
                 position: relative;
                 label {
                     display: block;
@@ -145,9 +184,72 @@ const submitForm = async () => {
                     width: 100%;
                 }
             }
+            .personal-data {
+                width: 100%;
+                margin-top: 30px;
+                position: relative;
+
+                label {
+                    display: inline-flex;
+                    align-items: center;
+                    cursor: pointer;
+
+                    .check {
+                        opacity: 0;
+                        z-index: -1;
+                        position: absolute;
+
+                        &:checked ~ .checkbox-indicator {
+                            opacity: 1;
+
+                            &::after {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .checkbox-indicator {
+                        min-width: 20px;
+                        max-width: 20px;
+                        min-height: 20px;
+                        max-height: 20px;
+                        border: 2px solid var(--white);
+                        position: relative;
+                        margin-right: 10px;
+                        opacity: 0.5;
+
+                        &::after {
+                            display: none;
+                            border: solid var(--pink);
+                            border-width: 0 2px 2px 0;
+                            content: '';
+                            height: 24px;
+                            left: 4px;
+                            position: absolute;
+                            top: -9px;
+                            transform: rotate(45deg);
+                            width: 11px;
+                        }
+                    }
+
+                    .personal-text {
+                        color: var(--white);
+                    }
+
+                    .personal-error {
+                        display: block;
+                        margin-top: 5px;
+                        color: var(--error);
+                        position: absolute;
+                        left: 0;
+                        bottom: -20px;
+                        transform: translateY(50%);
+                    }
+                }
+            }
             button {
                 margin: 0;
-                width: 33.3%;
+                flex: 1;
                 font-size: var(--font-size);
             }
         }
@@ -172,6 +274,27 @@ const submitForm = async () => {
                     margin: 0 auto;
                     width: 100%;
                     max-width: 500px;
+                }
+
+                .personal-data {
+                    margin: 0 auto;
+                    max-width: 500px;
+                    // margin-bottom: 35px;
+                    label {
+                        flex-wrap: wrap;
+                        .checkbox-indicator{
+                            flex: 1;
+                        }
+                        .personal-text{
+                            flex: 1;
+                        }
+                        .personal-error{
+                            position: relative;
+                            transform: unset;
+                            bottom: unset;
+                            left: unset;
+                        }
+                    }
                 }
             }
         }
