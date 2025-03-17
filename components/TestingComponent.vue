@@ -144,9 +144,7 @@ const submitForm = async () => {
         'Ваши пожелания': studentWishes.value.length ? studentWishes.value : 'Не указано'
     }
 
-    if (!errorName.value && !errorPhone.value) {
-        console.log('ins');
-        
+    if (!errorName.value && !errorPhone.value) {        
         try {
             const response = await useFetch('/api/lead', {
                 method: 'POST',
