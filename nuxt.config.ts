@@ -28,5 +28,12 @@ export default defineNuxtConfig({
   },
   sitemap: {
     hostname: 'https://baobei-online.ru',
+  },
+  nitro: {
+    routeRules: {
+      '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } },
+      '/images/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } },
+      '/fonts/**': { headers: { 'Cache-Control': 'public, max-age=31536000' } },
+    }
   }
 })
