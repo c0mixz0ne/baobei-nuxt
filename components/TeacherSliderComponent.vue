@@ -108,7 +108,7 @@ const prev = () => carouselRef.value.prev()
         <Carousel v-bind="config" ref="carouselRef" v-model="currentSlide" class="cr-custom">
             <Slide v-for="card in cards" :key="card.name">
                 <div class="carousel__item">
-                    <img :src="card.photo" alt="Аватар" />
+                    <img loading='lazy' :src="card.photo" alt="Аватар" />
                     <div class="slider-content">
                         <div class="slider-name">
                             {{ card.name }}

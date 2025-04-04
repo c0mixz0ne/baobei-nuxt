@@ -79,14 +79,14 @@ const BEHAVIOR: BehaviorType[] = ['drag', 'scrollZoom', 'dblClick', 'mouseRotate
             </yandex-map-controls>
             <yandex-map-controls :settings="{ position: 'left bottom' }">
                 <yandex-map-control-button class="open-map" @click="openMap">
-                    <img
+                    <img loading='lazy'
                         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxOCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0Y0MyIgZD0iTTcgMGE3IDcgMCAwIDAtNC45NSAxMS45NWMxLjI3IDEuMjcgNC4yNSAzLjEgNC40MiA1LjAzLjAzLjI4LjI0LjUyLjUzLjUyLjI5IDAgLjUtLjI0LjUzLS41Mi4xNy0xLjkzIDMuMTUtMy43NiA0LjQyLTUuMDNBNyA3IDAgMCAwIDcgMHoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNyA5LjQ1YTIuNDUgMi40NSAwIDEgMCAwLTQuOSAyLjQ1IDIuNDUgMCAwIDAgMCA0Ljl6Ii8+PC9zdmc+"
                         alt="Icon"
                     />
                     Как добраться
                 </yandex-map-control-button>
                 <yandex-map-control-button class="go-taxi" @click="goTaxi">
-                    <img
+                    <img loading='lazy'
                         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI2ZjMCIgZD0iTTQuNSAxQTMuNSAzLjUgMCAwIDAgMSA0LjVWOWgxNlY0LjVBMy41IDMuNSAwIDAgMCAxMy41IDFoLTl6Ii8+PHBhdGggZmlsbD0iI2U2ZTZlNiIgZD0iTTEgOXY0LjVBMy41IDMuNSAwIDAgMCA0LjUgMTdIOVY5SDF6Ii8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTkgOXY4aDQuNWEzLjUgMy41IDAgMCAwIDMuNS0zLjVWOUg5eiIvPjwvc3ZnPg=="
                         alt="Icon"
                     />
@@ -103,7 +103,7 @@ const BEHAVIOR: BehaviorType[] = ['drag', 'scrollZoom', 'dblClick', 'mouseRotate
                 position="top-center left-center"
                 :settings="{ coordinates: marker.coordinates }"
             >
-                <img alt="" class="pin" :src="marker.iconSrc" />
+                <img loading='lazy' alt="Icon" class="pin" :src="marker.iconSrc" />
             </yandex-map-marker>
         </yandex-map>
     </section>

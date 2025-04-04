@@ -13,7 +13,7 @@ const isLoginPage = computed(() => {
     <footer v-if="!isLoginPage" class="footer">
         <ContainerComponent>
             <NuxtLink to="/">
-                <img class="logo" src="@/assets/images/logo.png" alt="Логотип" />
+                <img loading='lazy' class="logo" src="@/assets/images/logo.png" alt="Логотип" />
             </NuxtLink>
             <p>
                 © {{ new Date().getFullYear() }} Baobei

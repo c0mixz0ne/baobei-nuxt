@@ -16,7 +16,7 @@ useHead({
 <template>
 	<section class="error">
 		<ContainerComponent>
-			<img class="error-image" src="@/assets/images/error.png" alt="Ошибка">
+			<img loading='lazy' class="error-image" src="@/assets/images/error.png" alt="Ошибка">
 			<h1>Упс... У нас произошла ошибочка {{ error?.statusCode }}. Мы уже знаем, и делаем всё возможное </h1>
 
 			<ButtonComponent @click="handleError">Перейти на главную</ButtonComponent>

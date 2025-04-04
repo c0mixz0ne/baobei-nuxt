@@ -41,7 +41,7 @@ useHead({
                 </ul>
             </div>
             <div class="image">
-                <img src="@/assets/images/eng.jpg" alt="Английский язык" />
+                <img loading='lazy' src="@/assets/images/eng.jpg" alt="Английский язык" />
             </div>
         </ProgramComponent>
         <ProgramComponent class="ltr">
@@ -62,7 +62,7 @@ useHead({
                 </ul>
             </div>
             <div class="image">
-                <img src="@/assets/images/chin.jpg" alt="Китайский язык" />
+                <img loading='lazy' src="@/assets/images/chin.jpg" alt="Китайский язык" />
             </div>
         </ProgramComponent>
         <ProgramComponent class="rtl">
@@ -81,7 +81,7 @@ useHead({
                 </ul>
             </div>
             <div class="image">
-                <img src="@/assets/images/school.jpg" alt="Дошкольная подготовка" />
+                <img loading='lazy' src="@/assets/images/school.jpg" alt="Дошкольная подготовка" />
             </div>
         </ProgramComponent>
         <ProgramComponent class="ltr">
@@ -100,7 +100,7 @@ useHead({
                 </ul>
             </div>
             <div class="image">
-                <img src="@/assets/images/egeoge.jpg" alt="Подготовка к ЕГЭ и ОГЭ" />
+                <img loading='lazy' src="@/assets/images/egeoge.jpg" alt="Подготовка к ЕГЭ и ОГЭ" />
             </div>
         </ProgramComponent>
     </ProgramContainerComponent>

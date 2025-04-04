@@ -21,7 +21,7 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
                     </ul>
                 </div>
                 <div class="image">
-                    <img src="@/assets/images/about.jpg" alt="About" />
+                    <img loading='lazy' src="@/assets/images/about.jpg" alt="About" />
                 </div>
             </div>
         </ContainerComponent>
