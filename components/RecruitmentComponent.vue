@@ -46,7 +46,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        height: 400px;
+        min-height: 550px;
         width: 100%;
         display: flex;
         align-items: flex-end;
@@ -61,17 +61,31 @@
             margin-top: 30px;
             text-transform: uppercase;
         }
+
+        @media screen and (orientation: portrait) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
+            url(@/assets/images/background2-portrait.jpg);
+        }
     }
 }
 
 @include breakpoint(xs) {
     .recruitment {
         padding: 0;
+        margin-top: 40px;
 
         .image-container {
             height: 40svh;
             min-height: 200px;
+
+            @media screen and (orientation: portrait) {
+                background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
+                url(@/assets/images/background2-portrait.jpg);
+                height: 60svh;
+            }
         }
     }
 }
+
+
 </style>

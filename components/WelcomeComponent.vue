@@ -10,7 +10,6 @@
     align-items: center;
     justify-content: center;
     height: 100svh;
-    min-height: 250px;
     background-image: linear-gradient(rgba(44, 55, 69, 0.8), rgba(44, 55, 69, 0.6)),
         url(@/assets/images/background1.jpg);
     background-size: cover;
@@ -50,6 +49,14 @@
         font-size: 20px;
         font-weight: lighter;
         margin-top: 30px;
+    }
+
+    @media screen and (orientation: landscape) {
+        min-height: 380px;
+    }
+
+    @media screen and (orientation: portrait) {
+        min-height: 480px;
     }
 }
 
