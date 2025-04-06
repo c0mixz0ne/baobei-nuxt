@@ -4,13 +4,14 @@ import { useRoute } from 'vue-router'
 import ContainerComponent from '@/components/layout/ContainerComponent.vue'
 
 const route = useRoute()
-const isLoginPage = computed(() => {
-    return route.path === '/login'
+
+const isSummerCampPage = computed(() => {
+    return route.path === '/summercamp'
 })
 
 </script>
 <template>
-    <footer v-if="!isLoginPage" class="footer">
+    <footer v-if="!isSummerCampPage" class="footer">
         <ContainerComponent>
             <NuxtLink to="/">
                 <img loading='lazy' class="logo" src="@/assets/images/logo.png" alt="Логотип" />
