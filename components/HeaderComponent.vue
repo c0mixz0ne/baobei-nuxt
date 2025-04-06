@@ -396,7 +396,10 @@ onUnmounted(() => {
 
                         a.router-link-active.summer-camp-link {
                             color: var(--summercamp-green);
-                            border-color: var(--summercamp-green-light);
+                        
+                            .rus, .eng {
+                                border-color: var(--summercamp-green-light);
+                            }
                         }
 
                         button.burger-menu {
@@ -518,10 +521,13 @@ onUnmounted(() => {
 
                     a.router-link-active.summer-camp-link {
                         color: var(--white);
-                        border-bottom: 2px solid #fefcc4;
 
                         .sun, .tree{
                             opacity: 0;
+                        }
+
+                        .rus, .eng {
+                            border-bottom: 2px solid #fefcc4;
                         }
                     }
 

@@ -165,6 +165,7 @@ watch(personalData, (newValue) => {
     width: 100%;
     background-color: var(--black-opacity);
     padding: 20px;
+    z-index: 10;
 
     .modal {
         position: relative;
