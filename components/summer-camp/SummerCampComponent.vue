@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import ContainerComponent from '../layout/ContainerComponent.vue';
 import ButtonComponent from '../ButtonComponent.vue';
+
+const modalStore = useModalStore()
+
+const openModal = () => {
+    modalStore.setIsSummerCampShow(true)
+}
 </script>
 <template>
     <section class="summer-camp">
@@ -449,7 +455,7 @@ import ButtonComponent from '../ButtonComponent.vue';
                 <div class="price">
                     Цена за 5 дней - 10 000 ₽
                 </div>
-                <ButtonComponent class="summer-camp-button">Записаться</ButtonComponent>
+                <ButtonComponent @click="openModal" class="summer-camp-button">Записаться</ButtonComponent>
             </div>
         </ContainerComponent>
     </section>

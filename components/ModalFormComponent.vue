@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, computed } from 'vue'
 import ButtonComponent from '@/components/ButtonComponent.vue'
 import { formatName, formatPhone } from '@/composables/formatInput'
 import { validateName, validatePhone } from '@/composables/validateInput'
@@ -11,13 +11,33 @@ onUnmounted(() => (document.body.style.overflow = ''))
 
 const modalStore = useModalStore()
 
+const route = useRoute()
+
 const close = () => {
-    modalStore.setIsShow(false)
+    if(route.path === '/program') {
+        modalStore.setIsShow(false)
+    }
+
+    if (route.path === '/summercamp') {
+        modalStore.setIsSummerCampShow(false)
+    }
 }
 
 const name = ref('')
 const phone = ref('')
 const formSended = ref(false)
+const source = computed(() => {
+    if(route.path === '/program') {
+        return 'Заявка со страницы программы'
+    }
+
+    if (route.path === '/summercamp') {
+        const target = route.query.target ? route.query.target : 'Не раклама';        
+        return `Заявка со страницы SummerCamp, статус ракламы - ${target}`
+    }
+
+    return 'Заявка с сайта'
+})
 
 const personalData = ref(false)
 const personalDataError = ref(false)
@@ -51,11 +71,11 @@ const submitForm = async () => {
                 body: {
                     'name': name,
                     'phone': phone,
-                    'source': 'Заявка со страницы программы'
+                    'source': source
                 },
                 watch: false
             })
-
+            
             name.value = ''
             phone.value = ''  
             

@@ -4,6 +4,7 @@ export const useModalStore = defineStore('modals', {
     state: () => ({
         isShow: false,
         isInfoShow: false,
+        isSummerCampShow: false,
         isInfoClosed: false
     }),
     actions: {
@@ -12,6 +13,9 @@ export const useModalStore = defineStore('modals', {
         },
         setIsInfoShow(value: boolean) {
             this.isInfoShow = value
+        },
+        setIsSummerCampShow(value: boolean) {
+            this.isSummerCampShow = value
         },
         setIsInfoClosed(value: boolean) {
             this.isInfoClosed = value
@@ -23,6 +27,9 @@ export const useModalStore = defineStore('modals', {
         },
         getIsInfoShow(): boolean {
             return this.isInfoShow
+        },
+        getIsSummerCampShow(): boolean {
+            return this.isSummerCampShow
         },
         getIsInfoClosed(): boolean {
             return this.isInfoClosed

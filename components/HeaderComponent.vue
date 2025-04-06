@@ -137,7 +137,8 @@ onUnmounted(() => {
                                         c5.522,0,10,4.477,10,10c0,0.553,0.447,1,1,1s1-0.447,1-1C44,25.375,38.627,20.002,32,20.002z"/>
                                 </g>
                             </svg>
-                            Summer Camp
+                            <span class="eng">Summer Camp</span>
+                            <span class="rus">Летние интенсивы</span>
                             <svg class="tree" width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
                                 <g>
                                     <path fill="#fff" d="M47.231,20.893C47.727,19.35,48,17.707,48,16c0-8.836-7.163-16-16-16S16,7.164,16,16
@@ -472,6 +473,12 @@ onUnmounted(() => {
 
                     a.summer-camp-link{
                         position: relative;
+                        .rus {
+                            display: none;
+                        }
+                        .eng {
+                            display: block;
+                        }
                         .sun {
                             width: 20px;
                             height: 20px;
@@ -492,6 +499,15 @@ onUnmounted(() => {
                             transition: var(--transition);
                             path {
                                 transition: var(--transition);
+                            }
+                        }
+
+                        &:hover {
+                            .rus {
+                                display: block;
+                            }
+                            .eng {
+                                display: none;
                             }
                         }
                     }
