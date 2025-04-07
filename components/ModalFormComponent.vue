@@ -80,6 +80,13 @@ const submitForm = async () => {
             phone.value = ''  
             
             formSended.value = true
+
+            if (route.path === '/summercamp') { 
+                if ('ym' in window) {
+                    const ym = (window as any).ym;
+                    ym(import.meta.env.VITE_YMETRIKA,'reachGoal','yandex-btn');
+                }
+            }
         } catch(error) {
             console.error('Error send data:', error)
         }
