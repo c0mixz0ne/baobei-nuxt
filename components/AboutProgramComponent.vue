@@ -8,7 +8,7 @@
 </template>
 <style lang="scss" scoped>
 .about-program {
-    padding: 90px 10px;
+    padding: 40px 10px;
     h2 {
         font-size: 28px;
         line-height: 44px;

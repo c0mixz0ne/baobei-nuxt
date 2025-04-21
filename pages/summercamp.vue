@@ -9,11 +9,10 @@ const modalStore = useModalStore()
 const isSummerCampShow = computed(() => modalStore.getIsSummerCampShow)
 
 useHead({
-  title: 'Summer Camp',
+	title: 'Summer Camp',
 })
 </script>
 <template>
-    <SummerCampComponent />
-    <ModalFormComponent v-if="isSummerCampShow" />
+	<SummerCampComponent />
+	<ModalFormComponent v-if="isSummerCampShow" />
 </template>
-<style lang="scss" scoped></style>

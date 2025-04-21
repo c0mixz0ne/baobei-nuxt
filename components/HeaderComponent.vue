@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import ContainerComponent from '@/components/layout/ContainerComponent.vue'
 import { useModalStore } from '@/stores/modal'
+import smoothScroll from '@/composables/smoothScroll'
+
+const route = useRoute()
+const router = useRouter()
 
 const mobileMenuIsOpen = ref<boolean>(false)
 const isWhiteHeader = ref<boolean>(false)
@@ -36,6 +41,14 @@ const inDev = () => {
     alert("Личный кабинет в разработке")
 }
 
+const contactsHandler = (target) => {
+    if (route.path === '/') {
+        smoothScroll(target);
+    } else {
+        router.push({ path: '/', hash: target });
+    }
+}
+
 onMounted(() => {
     resizeHandler()
     window.addEventListener('resize', resizeHandler, { passive: true })
@@ -64,6 +77,9 @@ onUnmounted(() => {
                     </li>
                     <li>
                         <NuxtLink to="/group">Набор</NuxtLink>
+                    </li>
+                    <li>
+                        <NuxtLink @click="contactsHandler('#contacts')">Контакты</NuxtLink>
                     </li>
                     <li>
                         <NuxtLink to="/summercamp" class="summer-camp-link">
@@ -194,6 +210,9 @@ onUnmounted(() => {
                         <NuxtLink to="/group" @click="toggleMobileMenu">Набор</NuxtLink>
                     </li>
                     <li>
+                        <NuxtLink @click="contactsHandler('#contacts')">Контакты</NuxtLink>
+                    </li>
+                    <li>
                         <NuxtLink to="/summercamp" class="summer-camp-link" @click="toggleMobileMenu">
                             <svg class="sun" width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64">
                                 <g>
@@ -308,41 +327,13 @@ onUnmounted(() => {
     top: 0;
     transition: var(--transition);
 
-    :deep(.logo){
-        :nth-child(1),
-        :nth-child(2), 
-        :nth-child(3), 
-        :nth-child(4),
-        :nth-child(5),
-        :nth-child(6),
-        :nth-child(7),
-        :nth-child(8),
-        :nth-child(9),
-        :nth-child(10),
-        :nth-child(11),
-        :nth-child(12),
-        :nth-child(13),
-        :nth-child(14),
-        :nth-child(15),
-        :nth-child(16),
-        :nth-child(17),
-        :nth-child(18),
-        :nth-child(19),
-        :nth-child(20),
-        :nth-child(21),
-        :nth-child(22),
-        :nth-child(23),
-        :nth-child(24){
-            fill: var(--white);
-            stroke: var(--white);
-            transition: var(--transition);
-        }
-    }
-
     &.black {
-        background-color: var(--gray);
+        background-color: var(--gray-opacity);
         border-bottom: 1px solid var(--pink);
+        height: 60px;
         :deep(.logo){
+            height: 40px;
+            width: 32px;
             :nth-child(1),
             :nth-child(2), 
             :nth-child(3), 
@@ -442,8 +433,39 @@ onUnmounted(() => {
         width: 62px;
         height: 70px;
         vertical-align: middle;
+        transition: var(--transition);
+
         path {
             stroke: transparent;
+        }
+
+        :nth-child(1),
+        :nth-child(2), 
+        :nth-child(3), 
+        :nth-child(4),
+        :nth-child(5),
+        :nth-child(6),
+        :nth-child(7),
+        :nth-child(8),
+        :nth-child(9),
+        :nth-child(10),
+        :nth-child(11),
+        :nth-child(12),
+        :nth-child(13),
+        :nth-child(14),
+        :nth-child(15),
+        :nth-child(16),
+        :nth-child(17),
+        :nth-child(18),
+        :nth-child(19),
+        :nth-child(20),
+        :nth-child(21),
+        :nth-child(22),
+        :nth-child(23),
+        :nth-child(24){
+            fill: var(--white);
+            stroke: var(--white);
+            transition: var(--transition);
         }
     }
 
@@ -483,22 +505,22 @@ onUnmounted(() => {
                             display: block;
                         }
                         .sun {
-                            width: 20px;
-                            height: 20px;
+                            width: 14px;
+                            height: 14px;
                             position: absolute;
-                            top: -11px;
-                            left: -6px;
+                            top: -8px;
+                            left: -3px;
                             transition: var(--transition);
                             path {
                                 transition: var(--transition);
                             }
                         }
                         .tree {
-                            width: 30px;
-                            height: 30px;
+                            width: 20px;
+                            height: 20px;
                             position: absolute;
-                            top: -10px;
-                            right: -25px;
+                            top: -3px;
+                            right: -14px;
                             transition: var(--transition);
                             path {
                                 transition: var(--transition);
@@ -567,9 +589,8 @@ onUnmounted(() => {
             display: flex;
             align-items: center;
             overflow: auto;
+            gap: 15px;
             li {
-                margin-right: 10px;
-
                 a {
                     text-decoration: none;
                     color: var(--white);
@@ -617,9 +638,15 @@ onUnmounted(() => {
 @include breakpoint(xs) {
     .header {
         height: 60px;
-        .logo {
+        :deep(.logo) {
             height: 40px;
             width: 36px;
+        }
+        &.black {
+            :deep(.logo) {
+                height: 40px;
+                width: 36px;
+            }
         }
 
         .container {

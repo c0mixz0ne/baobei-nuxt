@@ -1,4 +1,4 @@
-export default function smoothScroll(id: string) {
+export default function smoothScroll(id: string) {    
     const target = document.querySelector(id)
 
     if (!target) {

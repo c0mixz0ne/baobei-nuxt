@@ -6,12 +6,13 @@
 <style lang="scss" scoped>
 .program {
     width: 100%;
-    // max-width: 960px;
     max-width: 1320px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 15px;
     display: flex;
     margin-top: 120px;
+    border-radius: 4px;
+    border: 1px dashed var(--white);
 
     &.rtl {
         :slotted(.content) {

@@ -72,7 +72,6 @@ const isSummerCampPage = computed(() => {
         align-items: center;
 
         &>* {
-            /* flex-grow: 1; */
             width: calc(100% / 3);
         }
 
@@ -93,12 +92,12 @@ const isSummerCampPage = computed(() => {
                     transition: 0.3s ease;
                     color: var(--white);
 
-                    span {
-                        transition: 0.3s ease;
+                    &>span {
+                        transition: 0.6s ease;
                     }
 
                     &:hover {
-                        font-size: 25px;
+                        font-size: 14px;
                         color: var(--black);
 
                         span {
@@ -138,8 +137,8 @@ const isSummerCampPage = computed(() => {
     }
 
     .logo {
-        max-width: 150px;
-        height: 150px;
+        max-width: 130px;
+        height: 130px;
     }
 }
 
