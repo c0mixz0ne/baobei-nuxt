@@ -588,7 +588,8 @@ onUnmounted(() => {
             padding: 0 15px;
             display: flex;
             align-items: center;
-            overflow: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
             gap: 15px;
             li {
                 a {
