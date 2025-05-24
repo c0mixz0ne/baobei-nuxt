@@ -295,6 +295,8 @@ const openModal = () => {
 }
 
 @include breakpoint(xs) {
-
+    .personal-data {
+        padding: 70px 0;
+    }
 }
 </style>
