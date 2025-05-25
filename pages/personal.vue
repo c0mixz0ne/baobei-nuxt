@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import PersonalDataComponent from '@/components/PersonalDataComponent.vue'
+import PersonalDataComponent from '@/components/PersonalDataComponent.vue'
 import ModalFormComponent from '@/components/ModalFormComponent.vue'
 
 import { useModalStore } from '@/stores/modal'

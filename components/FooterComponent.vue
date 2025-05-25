@@ -18,7 +18,7 @@ const isSummerCampPage = computed(() => {
             </NuxtLink>
             <div class="links">
                 <div class="personal-data">
-                    <NuxtLink to="/hello">
+                    <NuxtLink to="/personal">
                         Политика обработки персональных данных
                     </NuxtLink>
                 </div>
