@@ -19,7 +19,12 @@
     &.program {
         background-image: linear-gradient(rgba(44, 55, 69, 0.8), rgba(44, 55, 69, 0.6)),
             url(@/assets/images/background-program.jpg);
-        height: calc(60vh - 90px);
+        height: calc(80vh - 90px);
+
+        @media screen and (orientation: portrait) { 
+            background-image: linear-gradient(rgba(44, 55, 69, 0.8), rgba(44, 55, 69, 0.6)),
+            url(@/assets/images/background-program-portrait.jpg);
+        }
     }
     &.groups {
         background-image: linear-gradient(rgba(240, 217, 219, 0.6), rgba(147, 114, 117, 0.8)),

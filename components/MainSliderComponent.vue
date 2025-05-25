@@ -43,8 +43,8 @@ export default {
         stopAutoPlay() {
             clearInterval(this.intervalId)
         },
-        buttonClick() {
-            smoothScroll('#form')
+        buttonClick(target) {
+            smoothScroll(target)
         }
     }
 }
@@ -60,7 +60,7 @@ export default {
                 <div class="content">
                     <p class="title">{{ slides[currentIndex].title }}</p>
                     <p class="text">{{ slides[currentIndex].text }}</p>
-                    <button class="slide-button" @click="buttonClick">Записаться</button>
+                    <button class="slide-button" @click="buttonClick('#form')">Записаться</button>
                 </div>
             </div>
         </transition>

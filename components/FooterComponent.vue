@@ -4,13 +4,14 @@ import { useRoute } from 'vue-router'
 import ContainerComponent from '@/components/layout/ContainerComponent.vue'
 
 const route = useRoute()
-const isLoginPage = computed(() => {
-    return route.path === '/login'
+
+const isSummerCampPage = computed(() => {
+    return route.path === '/summercamp'
 })
 
 </script>
 <template>
-    <footer v-if="!isLoginPage" class="footer">
+    <footer v-if="!isSummerCampPage" class="footer">
         <ContainerComponent>
             <NuxtLink to="/">
                 <img loading='lazy' class="logo" src="@/assets/images/logo.png" alt="Логотип" />
@@ -71,7 +72,6 @@ const isLoginPage = computed(() => {
         align-items: center;
 
         &>* {
-            /* flex-grow: 1; */
             width: calc(100% / 3);
         }
 
@@ -92,12 +92,12 @@ const isLoginPage = computed(() => {
                     transition: 0.3s ease;
                     color: var(--white);
 
-                    span {
-                        transition: 0.3s ease;
+                    &>span {
+                        transition: 0.6s ease;
                     }
 
                     &:hover {
-                        font-size: 25px;
+                        font-size: 14px;
                         color: var(--black);
 
                         span {
@@ -137,8 +137,8 @@ const isLoginPage = computed(() => {
     }
 
     .logo {
-        max-width: 150px;
-        height: 150px;
+        max-width: 130px;
+        height: 130px;
     }
 }
 

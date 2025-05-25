@@ -22,6 +22,8 @@ const personalData = ref(false)
 const personalDataError = ref(false)
 const isFormSubmitted = ref(false)
 
+const summerCampSelector = ref(false)
+
 // TODO: fix typescript types
 const setCheckbox = (event: any, question: any, option: string) => {
     if (event.target.checked) {
@@ -120,9 +122,21 @@ const submitForm = async () => {
     validateQuestion()
 
     errorName.value = validateName(studentName)
-    errorPhone.value = validatePhone(studentPhone)
+    errorPhone.value = validatePhone(studentPhone)        
 
-    if (
+    if(summerCampSelector) {        
+        if (
+            !typeEducation.value.length ||
+            !yearsOld.value.length ||
+            !studentName.value.length ||
+            !studentPhone.value.length
+        ) {
+            formError.value = true
+            return
+        }
+    }
+
+    else if (
         !typeEducation.value.length ||
         !yearsOld.value.length ||
         !formatLesson.value.length ||
@@ -134,11 +148,13 @@ const submitForm = async () => {
         return
     }
 
+    
+
     const formData = {
         'Какое направление вас заинтересовало?': typeEducation.value,
         'Сколько лет поступающему на обучение?': yearsOld.value,
-        'Какой формат занятий вам интересен?': formatLesson.value,
-        'Срок обучения для достижения вашей цели?': durationStudy.value,
+        'Какой формат занятий вам интересен?': summerCampSelector.value ? 'Для летниго интенсива формат не задан' : formatLesson.value,
+        'Срок обучения для достижения вашей цели?': summerCampSelector.value ? 'Для летниго интенсива срок не задан' : durationStudy.value,
         'Ваше имя': studentName.value,
         'Ваш телефон': studentPhone.value,
         'Ваши пожелания': studentWishes.value.length ? studentWishes.value : 'Не указано'
@@ -172,6 +188,7 @@ const submitForm = async () => {
                 isFormSubmitted.value = false; 
                 
                 formSended.value = true
+                summerCampSelector.value = false
                 console.log('Server response:', response.data)
         } catch(error) {
             console.error('Error send data:', error)
@@ -198,6 +215,8 @@ const submitForm = async () => {
 
 const validateQuestion = () => {
     document.querySelectorAll('.question').forEach((el) => {
+        if (el.classList.contains('summerCampSelector')) return
+
         if (el.getAttribute('id')) {
             if (!el.querySelector('input')?.value) {
                 el.classList.add('error')
@@ -293,6 +312,19 @@ watch(personalData, (newValue) => {
                             <label for="q-1-6">
                                 <input
                                     id="q-1-6"
+                                    class="check"
+                                    type="checkbox"
+                                    v-model="summerCampSelector"
+                                    @input="setCheckbox($event, typeEducation, 'Летний интенсив')"
+                                />
+                                <div class="checkbox-indicator"></div>
+                                <span>Летний интенсив</span>
+                            </label>
+                        </li>
+                        <li class="checkbox-item">
+                            <label for="q-1-7">
+                                <input
+                                    id="q-1-7"
                                     class="check"
                                     type="checkbox"
                                     @input="setCheckbox($event, typeEducation, 'Свой вариант')"
@@ -394,7 +426,7 @@ watch(personalData, (newValue) => {
                         </li>
                     </ul>
                 </div>
-                <div id="question-3" class="question">
+                <div v-if="!summerCampSelector" id="question-3" class="question">
                     <input
                         :value="formatLesson"
                         name="Какой формат занятий вам интересен?"
@@ -448,7 +480,7 @@ watch(personalData, (newValue) => {
                         </li>
                     </ul>
                 </div>
-                <div id="question-4" class="question">
+                <div v-if="!summerCampSelector" id="question-4" class="question">
                     <input
                         :value="durationStudy"
                         name="Срок обучения для достижения вашей цели?"
@@ -592,7 +624,7 @@ watch(personalData, (newValue) => {
 
 <style lang="scss" scoped>
 .testing {
-    padding: 100px 0;
+    padding: 50px 0;
 
     .container {
         max-width: 800px;

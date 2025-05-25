@@ -15,7 +15,7 @@
     }
 
     @include breakpoint(sm) {
-        padding: 50px 0;
+        padding: 50px 10px;
     }
 }
 </style>

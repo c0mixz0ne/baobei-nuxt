@@ -51,7 +51,7 @@ const goTaxi = () => {
 const BEHAVIOR: BehaviorType[] = ['drag', 'scrollZoom', 'dblClick', 'mouseRotate', 'mouseTilt'];
 </script>
 <template>
-    <section class="navigation">
+    <section id="contacts" class="navigation">
         <div class="contacts">
             <h5>Контакты</h5>
             <ul>
@@ -155,12 +155,12 @@ const BEHAVIOR: BehaviorType[] = ['drag', 'scrollZoom', 'dblClick', 'mouseRotate
             padding: 0;
             color: var(--white);
             li {
-                font-weight: lighter;
+                // font-weight: lighter;
                 margin-bottom: 10px;
                 a {
                     text-decoration: none;
                     color: var(--white);
-                    font-weight: lighter;
+                    // font-weight: lighter;
                 }
                 &.time-work {
                     margin-top: 30px;
