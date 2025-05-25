@@ -13,7 +13,7 @@ const isWhiteHeader = ref<boolean>(false)
 
 const modalStore = useModalStore()
 
-const toggleMobileMenu = () => {    
+const toggleMobileMenu = () => {
     mobileMenuIsOpen.value = !mobileMenuIsOpen.value
 }
 
@@ -51,12 +51,14 @@ const contactsHandler = (target) => {
 
 onMounted(() => {
     resizeHandler()
+    scrollHandler()
     window.addEventListener('resize', resizeHandler, { passive: true })
     window.addEventListener('scroll', scrollHandler, { passive: true })
 })
 
 onUnmounted(() => {
     resizeHandler()
+    scrollHandler()
     window.removeEventListener('resize', resizeHandler)
     window.removeEventListener('scroll', scrollHandler)
 })
@@ -335,8 +337,8 @@ onUnmounted(() => {
             height: 40px;
             width: 32px;
             :nth-child(1),
-            :nth-child(2), 
-            :nth-child(3), 
+            :nth-child(2),
+            :nth-child(3),
             :nth-child(4),
             :nth-child(5),
             :nth-child(6),
@@ -387,7 +389,7 @@ onUnmounted(() => {
 
                         a.router-link-active.summer-camp-link {
                             color: var(--summercamp-green);
-                        
+
                             .rus, .eng {
                                 border-color: var(--summercamp-green-light);
                             }
@@ -440,8 +442,8 @@ onUnmounted(() => {
         }
 
         :nth-child(1),
-        :nth-child(2), 
-        :nth-child(3), 
+        :nth-child(2),
+        :nth-child(3),
         :nth-child(4),
         :nth-child(5),
         :nth-child(6),
@@ -573,7 +575,7 @@ onUnmounted(() => {
         }
     }
 
-    .mobile-menu {  
+    .mobile-menu {
         position: absolute;
         width: 100%;
         height: 50px;
