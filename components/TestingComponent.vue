@@ -91,7 +91,7 @@ const setRadio = (event: any, question: any, option: string) => {
     question[0] = option
 }
 
-const customRadioHandler = (event: any, question: any) => {    
+const customRadioHandler = (event: any, question: any) => {
     question[0] = `Свой вариант: ${event.target.value.length ? event.target.value : 'Не указан'}`
     event.target.value = 'Не указан';
 }
@@ -113,7 +113,7 @@ const submitForm = async () => {
 
     if (personalData.value == false) {
         personalDataError.value = true
-        
+
         return
     } else {
         personalDataError.value = false
@@ -122,9 +122,9 @@ const submitForm = async () => {
     validateQuestion()
 
     errorName.value = validateName(studentName)
-    errorPhone.value = validatePhone(studentPhone)        
+    errorPhone.value = validatePhone(studentPhone)
 
-    if(summerCampSelector) {        
+    if(summerCampSelector) {
         if (
             !typeEducation.value.length ||
             !yearsOld.value.length ||
@@ -148,7 +148,7 @@ const submitForm = async () => {
         return
     }
 
-    
+
 
     const formData = {
         'Какое направление вас заинтересовало?': typeEducation.value,
@@ -160,7 +160,7 @@ const submitForm = async () => {
         'Ваши пожелания': studentWishes.value.length ? studentWishes.value : 'Не указано'
     }
 
-    if (!errorName.value && !errorPhone.value) {        
+    if (!errorName.value && !errorPhone.value) {
         try {
             const response = await useFetch('/api/lead', {
                 method: 'POST',
@@ -183,10 +183,10 @@ const submitForm = async () => {
                 studentName.value = ''
                 studentPhone.value = ''
                 studentWishes.value = ''
-                personalData.value = false; 
-                personalDataError.value = false; 
-                isFormSubmitted.value = false; 
-                
+                personalData.value = false;
+                personalDataError.value = false;
+                isFormSubmitted.value = false;
+
                 formSended.value = true
                 summerCampSelector.value = false
                 console.log('Server response:', response.data)
@@ -202,7 +202,7 @@ const submitForm = async () => {
         input.checked = false
         if (input.parentElement.querySelector('.custom')) {
             input.parentElement.querySelector('.custom').value = ''
-        }  
+        }
     })
 
     document.querySelectorAll('.check[name=radio]:checked').forEach((input: any) => {
@@ -605,7 +605,7 @@ watch(personalData, (newValue) => {
                             v-model="personalData"
                         />
                         <div class="checkbox-indicator"></div>
-                        <span class="personal-text">Согласие на обработку персональных данных</span>
+                        <span class="personal-text">Я даю согласие на обработку моих персональных данных в соответствии с <NuxtLink target="_blank" to="/personal">Политикой обработки персональных данных</NuxtLink>.</span>
                         <span class="personal-error" v-if="isFormSubmitted && personalDataError">Необходимо согласие на обработку персональных данных</span>
                     </label>
                 </div>
@@ -938,6 +938,10 @@ watch(personalData, (newValue) => {
                     .personal-text {
                         color: var(--black);
                         flex: 1;
+
+                        &>a {
+                            color: var(--black);
+                        }
                     }
 
                     .personal-error {

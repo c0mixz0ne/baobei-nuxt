@@ -32,7 +32,7 @@ const source = computed(() => {
     }
 
     if (route.path === '/summercamp') {
-        const target = route.query.target ? route.query.target : 'Не раклама';        
+        const target = route.query.target ? route.query.target : 'Не раклама';
         return `Заявка со страницы SummerCamp, статус ракламы - ${target}`
     }
 
@@ -65,7 +65,7 @@ const submitForm = async () => {
     errorPhone.value = validatePhone(phone)
 
     if (!errorName.value && !errorPhone.value) {
-        try {  
+        try {
             const response = await useFetch('/api/lead', {
                 method: 'POST',
                 body: {
@@ -75,13 +75,13 @@ const submitForm = async () => {
                 },
                 watch: false
             })
-            
+
             name.value = ''
-            phone.value = ''  
-            
+            phone.value = ''
+
             formSended.value = true
 
-            if (route.path === '/summercamp') { 
+            if (route.path === '/summercamp') {
                 if ('ym' in window) {
                     const ym = (window as any).ym;
                     ym(import.meta.env.VITE_YMETRIKA,'reachGoal','yandex-btn');
@@ -154,7 +154,7 @@ watch(personalData, (newValue) => {
                             v-model="personalData"
                         />
                         <div class="checkbox-indicator"></div>
-                        <span class="personal-text">Согласие на обработку персональных данных</span>
+                        <span class="personal-text">Я даю согласие на обработку моих персональных данных в соответствии с <NuxtLink target="_blank" to="/personal">Политикой обработки персональных данных</NuxtLink>.</span>
                         <span class="personal-error" v-if="isFormSubmitted && personalDataError">Необходимо согласие на обработку персональных данных</span>
                     </label>
                 </div>
@@ -271,6 +271,10 @@ watch(personalData, (newValue) => {
                     .personal-text {
                         color: var(--black);
                         flex: 1;
+
+                        &>a {
+                            color: var(--black);
+                        }
                     }
 
                     .personal-error {

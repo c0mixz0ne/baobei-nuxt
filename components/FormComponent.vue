@@ -57,8 +57,8 @@ const submitForm = async () => {
             })
 
             name.value = ''
-            phone.value = ''  
-            
+            phone.value = ''
+
             formSended.value = true
         } catch(error) {
             console.error('Error send data:', error)
@@ -113,11 +113,11 @@ watch(personalData, (newValue) => {
                             v-model="personalData"
                         />
                         <div class="checkbox-indicator"></div>
-                        <span class="personal-text">Согласие на обработку персональных данных</span>
+                        <span class="personal-text">Я даю согласие на обработку моих персональных данных в соответствии с <NuxtLink target="_blank" to="/personal">Политикой обработки персональных данных</NuxtLink>.</span>
                         <span class="personal-error" v-if="isFormSubmitted && personalDataError">Необходимо согласие на обработку персональных данных</span>
                     </label>
                 </div>
-               
+
             </form>
             <span v-if="formSended" class="form-submit">Спасибо, ваша заявка принята, наш адмиинистратор свяжется с Вами в ближайшее время</span>
         </ContainerComponent>
@@ -234,6 +234,10 @@ watch(personalData, (newValue) => {
 
                     .personal-text {
                         color: var(--white);
+
+                        &>a {
+                            color: var(--white);
+                        }
                     }
 
                     .personal-error {

@@ -16,12 +16,17 @@ const isSummerCampPage = computed(() => {
             <NuxtLink to="/">
                 <img loading='lazy' class="logo" src="@/assets/images/logo.png" alt="Логотип" />
             </NuxtLink>
-            <p>
+            <div class="links">
+                <div class="personal-data">
+                    <NuxtLink to="/personal">
+                        Политика обработки персональных данных
+                    </NuxtLink>
+                </div>
                 © {{ new Date().getFullYear() }} Baobei
                 <span>dev by
                     <NuxtLink external target="_blank" href="https://github.com/c0mixz0ne"><span>c</span>omix<span>z</span>one</NuxtLink>
                 </span>
-            </p>
+            </div>
             <ul>
                 <li>
                     <NuxtLink external target="_blank" href="https://vk.com/baobeinsk">
@@ -75,11 +80,20 @@ const isSummerCampPage = computed(() => {
             width: calc(100% / 3);
         }
 
-        &>p {
+        &>.links {
             font-size: 14px;
             color: var(--white);
             text-align: center;
             font-weight: lighter;
+
+            &>.personal-data {
+                margin-bottom: 20px;
+
+                &>a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
 
             &>span {
                 font-size: 12px;
@@ -160,7 +174,7 @@ const isSummerCampPage = computed(() => {
                 order: 1;
             }
 
-            &>p {
+            &>.links {
                 flex-direction: column;
                 order: 3;
                 margin-bottom: 0;
