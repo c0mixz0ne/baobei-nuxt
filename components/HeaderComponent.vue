@@ -43,9 +43,14 @@ const inDev = () => {
 
 const contactsHandler = (target) => {
     if (route.path === '/') {
-        smoothScroll(target);
+        smoothScroll(target)
     } else {
-        router.push({ path: '/', hash: target });
+        router.push({ path: '/', hash: target })
+
+        // TODO: rewrite
+        setTimeout(() => {
+            smoothScroll(target)
+        }, 100);
     }
 }
 
