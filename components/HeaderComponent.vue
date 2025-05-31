@@ -41,7 +41,7 @@ const inDev = () => {
     alert("Личный кабинет в разработке")
 }
 
-const contactsHandler = (target) => {
+const contactsHandler = (target: string) => {
     if (route.path === '/') {
         smoothScroll(target)
     } else {

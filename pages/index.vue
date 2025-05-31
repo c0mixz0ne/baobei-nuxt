@@ -10,6 +10,7 @@ import AboutComponent from '@/components/AboutComponent.vue'
 import TeacherComponent from '@/components/TeacherComponent.vue'
 import FormComponent from '@/components/FormComponent.vue'
 import MapComponent from '@/components/MapComponent.vue'
+import ModalInfoComponent from '@/components/ModalInfoComponent.vue'
 
 import smoothScroll from '@/composables/smoothScroll'
 
