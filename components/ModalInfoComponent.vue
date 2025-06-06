@@ -7,13 +7,14 @@ const modalStore = useModalStore()
 
 const isInfoModalShow = computed(() => modalStore.getIsInfoShow)
 const isInfoClosed = computed(() => modalStore.getIsInfoClosed)
+const cookieHeight = computed(() => modalStore.getCookieHeight)
 
 const closeModal = () => {
     modalStore.setIsInfoClosed(true)
 }
-</script>   
+</script>
 <template>
-<div v-if="!isInfoClosed" :class="isInfoModalShow ? 'show' : ''" class="info-wrapper">
+<div v-if="!isInfoClosed" :class="isInfoModalShow ? 'show' : ''" class="info-wrapper" :style="{'--dynamic-bottom': `${cookieHeight}px`}">
     <ContainerComponent>
         <div class="info">
             <slot></slot>
@@ -36,7 +37,7 @@ const closeModal = () => {
     padding: 0 10px;
 
     &.show {
-        bottom: 10px;
+        bottom: calc(10px + var(--dynamic-bottom));
     }
 
     :deep(.container){

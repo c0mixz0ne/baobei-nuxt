@@ -5,7 +5,9 @@ export const useModalStore = defineStore('modals', {
         isShow: false,
         isInfoShow: false,
         isSummerCampShow: false,
-        isInfoClosed: false
+        isInfoClosed: false,
+        isCookieAccepted: false,
+        cookieHeight: 0
     }),
     actions: {
         setIsShow(value: boolean) {
@@ -19,20 +21,32 @@ export const useModalStore = defineStore('modals', {
         },
         setIsInfoClosed(value: boolean) {
             this.isInfoClosed = value
+        },
+        setIsCookieAccepted(value: boolean) {
+            this.isCookieAccepted = value
+        },
+        setCookieHeight(height: number) {
+            this.cookieHeight = height;
         }
     },
     getters: {
         getIsShow(): boolean {
             return this.isShow
         },
-        getIsInfoShow(): boolean {
-            return this.isInfoShow
-        },
         getIsSummerCampShow(): boolean {
             return this.isSummerCampShow
         },
+        getIsInfoShow(): boolean {
+            return this.isInfoShow
+        },
         getIsInfoClosed(): boolean {
             return this.isInfoClosed
-        }
+        },
+        getIsCookieAccepted(): boolean {
+            return this.isCookieAccepted
+        },
+        getCookieHeight(): number {
+            return this.cookieHeight
+        },
     }
 })

@@ -2,6 +2,7 @@
 import Header from '@/components/HeaderComponent.vue'
 import Main from '@/components/MainComponent.vue'
 import Footer from '@/components/FooterComponent.vue'
+import CookiesComponent from './components/CookiesComponent.vue'
 
 import ogImage from '@/assets/images/ogImage.jpg'
 
@@ -58,4 +59,5 @@ useSeoMeta({
 	<Header />
 	<Main />
 	<Footer />
+  <CookiesComponent />
 </template>
