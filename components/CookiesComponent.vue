@@ -9,37 +9,46 @@ const resizeObserver = ref<ResizeObserver | null>(null);
 
 const isCookieAccepted = computed(() => modalStore.getIsCookieAccepted)
 
+const props = defineProps({
+    metrika: {
+        type: Function as PropType<() => void>,
+        required: true
+    }
+})
+
 const cookieHandler = () => {
     if (resizeObserver.value) {
-        resizeObserver.value.disconnect();
+        resizeObserver.value.disconnect()
     }
 
-    modalStore.setCookieHeight(0);
+    modalStore.setCookieHeight(0)
 
     modalStore.setIsCookieAccepted(true)
+
+    props.metrika?.();
 }
 
 const updateCookieHeight = () => {
     if (cookieWrapper.value) {
-        const height = cookieWrapper.value.offsetHeight;
-        modalStore.setCookieHeight(height);
+        const height = cookieWrapper.value.offsetHeight
+        modalStore.setCookieHeight(height)
     }
 };
 
 onMounted(() => {
     if (!isCookieAccepted.value && cookieWrapper.value) {
         resizeObserver.value = new ResizeObserver(() => {
-            updateCookieHeight();
+            updateCookieHeight()
         });
 
         resizeObserver.value.observe(cookieWrapper.value);
-        updateCookieHeight();
+        updateCookieHeight()
     }
 });
 
 onUnmounted(() => {
     if (resizeObserver.value) {
-        resizeObserver.value.disconnect();
+        resizeObserver.value.disconnect()
     }
 });
 </script>

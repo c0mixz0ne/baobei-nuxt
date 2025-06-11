@@ -15,12 +15,8 @@ export default defineNuxtConfig({
   modules: [
     'vue-yandex-maps/nuxt',
     '@pinia/nuxt',
-    '@/modules/sitemap',
-    'yandex-metrika-module-nuxt3'
+    '@/modules/sitemap'
   ],
-  yandexMetrika: {
-    id: process.env.VITE_YMETRIKA
-  },
   yandexMaps: {
     apikey: process.env.VITE_YMAPKEY,
   },

@@ -6,6 +6,8 @@ import CookiesComponent from './components/CookiesComponent.vue'
 
 import ogImage from '@/assets/images/ogImage.jpg'
 
+const { $initMetrika } = useNuxtApp()
+
 const route = useRoute()
 
 useHead(() => ({
@@ -53,11 +55,15 @@ useSeoMeta({
   ogType: 'website',
   ogSiteName: 'Центр иностранных языков и детского развития Baobei в Новосибирске',
 })
+
+const loadMetrika = () => {
+  $initMetrika()
+}
 </script>
 
 <template>
 	<Header />
 	<Main />
 	<Footer />
-  <CookiesComponent />
+  <CookiesComponent :metrika="loadMetrika" />
 </template>
