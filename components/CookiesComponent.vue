@@ -1,14 +1,11 @@
 <script setup lang="ts">
 
 import { useModalStore } from '@/stores/modal'
-import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const modalStore = useModalStore()
-const cookieWrapper = ref<HTMLElement | null>(null)
-const resizeObserver = ref<ResizeObserver | null>(null)
-
-const initialCookieState = localStorage.getItem('cookieAccepted') === 'true'
-modalStore.setIsCookieAccepted(initialCookieState)
+const cookieWrapper = ref<HTMLElement | null>(null);
+const resizeObserver = ref<ResizeObserver | null>(null);
 
 const isCookieAccepted = computed(() => modalStore.getIsCookieAccepted)
 
@@ -19,16 +16,6 @@ const props = defineProps({
     }
 })
 
-watch(
-  isCookieAccepted,
-  (newValue) => {
-    if (newValue) {
-      props.metrika?.();
-    }
-  },
-  { immediate: true }
-);
-
 const cookieHandler = () => {
     if (resizeObserver.value) {
         resizeObserver.value.disconnect()
@@ -38,7 +25,7 @@ const cookieHandler = () => {
 
     modalStore.setIsCookieAccepted(true)
 
-    localStorage.setItem('cookieAccepted', 'true');
+    props.metrika?.();
 }
 
 const updateCookieHeight = () => {
