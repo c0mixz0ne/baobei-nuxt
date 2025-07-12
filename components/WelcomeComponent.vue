@@ -32,6 +32,15 @@
         height: calc(80svh - 90px);
         background-position: center;
     }
+    &.about {
+        background-image: linear-gradient(rgba(240, 217, 219, 0.6), rgba(147, 114, 117, 0.8)),
+            url(@/assets/images/about-page.jpg);
+        height: calc(80svh - 90px);
+        background-position: center;
+        @include breakpoint(xs) { 
+            background-position: 12% 10%;
+        }
+    }
     :slotted(h1) {
         color: var(--white);
         text-align: center;

@@ -85,10 +85,10 @@ onUnmounted(() => {
                     <li>
                         <NuxtLink to="/group">Набор</NuxtLink>
                     </li>
-                    <li>
+                    <!-- <li>
                         <NuxtLink @click="contactsHandler('#contacts')">Контакты</NuxtLink>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                         <NuxtLink to="/summercamp" class="summer-camp-link">
                             <svg class="sun" width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64">
                                 <g>
@@ -185,7 +185,7 @@ onUnmounted(() => {
                                 </g>
                             </svg>
                         </NuxtLink>
-                    </li>
+                    </li> -->
                     <li>
                         <NuxtLink @click="inDev">Войти</NuxtLink>
                     </li>
@@ -216,10 +216,10 @@ onUnmounted(() => {
                     <li>
                         <NuxtLink to="/group" @click="toggleMobileMenu">Набор</NuxtLink>
                     </li>
-                    <li>
+                    <!-- <li>
                         <NuxtLink @click="contactsHandler('#contacts')">Контакты</NuxtLink>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                         <NuxtLink to="/summercamp" class="summer-camp-link" @click="toggleMobileMenu">
                             <svg class="sun" width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64">
                                 <g>
@@ -315,7 +315,7 @@ onUnmounted(() => {
                                 </g>
                             </svg>
                         </NuxtLink>
-                    </li>
+                    </li> -->
                     <li>
                         <NuxtLink @click="inDev">Войти</NuxtLink>
                     </li>

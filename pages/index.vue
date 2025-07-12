@@ -39,9 +39,9 @@ useHead({
 	<ServiceComponent />
 	<FreeLessonComponent />
 	<AboutComponent />
-	<TeacherComponent />
+	<!-- <TeacherComponent /> -->
 	<FormComponent />
-	<MapComponent />
+	<!-- <MapComponent /> -->
 	<ModalInfoComponent>
 		Вступай в нашу группу в Телеграм! Всегда актуальные новости, конкурсы и многое другое
 	</ModalInfoComponent>

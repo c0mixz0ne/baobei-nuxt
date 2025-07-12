@@ -17,7 +17,12 @@ const isSummerCampPage = computed(() => {
                 <img loading='lazy' class="logo" src="@/assets/images/logo.png" alt="Логотип" />
             </NuxtLink>
             <div class="links">
-                <div class="personal-data">
+                <div class="general-data">
+                    <NuxtLink to="/about">
+                        Сведения об образовательной организации
+                    </NuxtLink>
+                </div>
+                <div class="general-data">
                     <NuxtLink to="/personal">
                         Политика обработки персональных данных
                     </NuxtLink>
@@ -86,12 +91,13 @@ const isSummerCampPage = computed(() => {
             text-align: center;
             font-weight: lighter;
 
-            &>.personal-data {
+            &>.general-data {
                 margin-bottom: 20px;
 
                 &>a {
                     color: #fff;
                     text-decoration: none;
+                    display: block;
                 }
             }
 
