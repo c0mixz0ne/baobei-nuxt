@@ -85,6 +85,9 @@ onUnmounted(() => {
                     <li>
                         <NuxtLink to="/group">Набор</NuxtLink>
                     </li>
+                    <li>
+                        <NuxtLink to="/about">Сведения об образовательной организации</NuxtLink>
+                    </li>
                     <!-- <li>
                         <NuxtLink @click="contactsHandler('#contacts')">Контакты</NuxtLink>
                     </li> -->
@@ -215,6 +218,9 @@ onUnmounted(() => {
                     </li>
                     <li>
                         <NuxtLink to="/group" @click="toggleMobileMenu">Набор</NuxtLink>
+                    </li>
+                    <li>
+                        <NuxtLink to="/about">Сведения об образовательной организации</NuxtLink>
                     </li>
                     <!-- <li>
                         <NuxtLink @click="contactsHandler('#contacts')">Контакты</NuxtLink>
@@ -602,6 +608,7 @@ onUnmounted(() => {
                 a {
                     text-decoration: none;
                     color: var(--white);
+                    white-space: nowrap;
 
                 }
                 a.router-link-active {

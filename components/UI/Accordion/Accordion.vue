@@ -7,13 +7,11 @@
             </div>
             <div v-if="item.list" class="accordion-content" v-show="isOpen(index)">
                 <ul>
-                    <li v-for="(list, i) in item.content" :key="i">
-                        {{ list }}
-                    </li>
+                    <li v-for="(list, i) in item.content" :key="i" v-html="list"></li>
                 </ul>
             </div>
             <div v-else class="accordion-content" v-show="isOpen(index)">
-                <p>{{ item.content }}</p>
+                <p v-html="item.content"></p>
             </div>
         </div>
     </div>
@@ -44,7 +42,6 @@ const isOpen = (index) => {
 
 const toggleItem = (index) => {
     if (props.multiple) {
-        // Для режима, когда можно открывать несколько элементов
         const currentIndex = openItems.value.indexOf(index);
         if (currentIndex === -1) {
             openItems.value.push(index);
@@ -52,7 +49,6 @@ const toggleItem = (index) => {
             openItems.value.splice(currentIndex, 1);
         }
     } else {
-        // Для режима, когда только один элемент может быть открыт
         if (openItems.value[0] === index) {
             openItems.value = [];
         } else {
@@ -109,5 +105,14 @@ const toggleItem = (index) => {
 .accordion-content ul {
     list-style-type: none;
     padding: 0;
+}
+
+.accordion-content a {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+.accordion-content a:hover {
+    color: #004499;
 }
 </style>
