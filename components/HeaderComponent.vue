@@ -190,7 +190,7 @@ onUnmounted(() => {
                         </NuxtLink>
                     </li> -->
                     <li>
-                        <NuxtLink @click="inDev">Войти</NuxtLink>
+                        <NuxtLink external href="https://baobei.s20.online/">Войти</NuxtLink>
                     </li>
                 </ul>
                 <ul class="mobile">
@@ -323,7 +323,7 @@ onUnmounted(() => {
                         </NuxtLink>
                     </li> -->
                     <li>
-                        <NuxtLink @click="inDev">Войти</NuxtLink>
+                        <NuxtLink external href="https://baobei.s20.online/">Войти</NuxtLink>
                     </li>
                 </ul>
             </div>
