@@ -149,6 +149,32 @@ const educationItems = [
             '<a href="files/Gateway2edB1plusWorkbook.pdf" target="_blank">Gateway workbook</a>',
             '<a href="files/op.docx" target="_blank">Образовательная программа</a>',
         ]
+    },
+    {
+        title: 'Стоимость 2024-2025',
+        list: true,
+        content: [
+            'Amazing Chinese (парное) (4 по 60) от 3 900,00',
+            'Discover China (4 по 90) от 4 000,00',
+            'Discover China (8 по 75) от 6 400,00',
+            'Discover China (8 по 90) от 6 320,00',
+            'Discover China (парное) (4 по 90) от 4 400,00',
+            'Easy Steps (4 по 60) от 3 200,00',
+            'Easy Steps (4 по 90) от 4 000,00',
+            'Easy Steps (8 по 60) от 5 400,00',
+            'Easy Steps (парное) (4 по 90) от 4 400,00',
+            'Easy Steps (парное) (8 по 60) от 6 100,00',
+            'Eyes Open 2 от 5 600,00',
+            'Eyes Open 3 от 6 000,00',
+            'Eyes Open 3 (парное) от 6 400,00',
+            'Eyes Open 4 от 6 200,00',
+            'Gateway B1+ (парное) от 6 400,00',
+            'Gateway B2/B2+ (парное) от 6 600,00',
+            'Getway B1+ от 6 400,00',
+            'Getway B2 от 6 800,00',
+            'Getway B2+ от 6 800,00',
+            'HSK (8 по 90) от 7 440,00',
+        ]
     }
 
 ];
