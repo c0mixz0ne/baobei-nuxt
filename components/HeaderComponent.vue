@@ -696,13 +696,27 @@ onUnmounted(() => {
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .no-wrap {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 120px;
-        display: block;
+        > a {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 120px;
+            display: block;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .no-wrap {
+        > a {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 70px;
+            display: block;
+        }
     }
 }
 </style>
