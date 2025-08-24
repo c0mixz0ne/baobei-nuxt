@@ -86,6 +86,9 @@ onUnmounted(() => {
                         <NuxtLink to="/group">Набор</NuxtLink>
                     </li>
                     <li>
+                        <NuxtLink to="/review">Отзывы</NuxtLink>
+                    </li>
+                    <li>
                         <NuxtLink to="/about">Сведения об образовательной организации</NuxtLink>
                     </li>
                     <!-- <li>
@@ -218,6 +221,9 @@ onUnmounted(() => {
                     </li>
                     <li>
                         <NuxtLink to="/group" @click="toggleMobileMenu">Набор</NuxtLink>
+                    </li>
+                    <li>
+                        <NuxtLink to="/review" @click="toggleMobileMenu">Отзывы</NuxtLink>
                     </li>
                     <li>
                         <NuxtLink to="/about">Сведения об образовательной организации</NuxtLink>

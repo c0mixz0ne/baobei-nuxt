@@ -16,6 +16,16 @@
     background-position: center center;
     background-repeat: no-repeat;
     padding: 0 30px;
+    &.review{
+        background-image: linear-gradient(rgba(44, 55, 69, 0.8), rgba(44, 55, 69, 0.6)),
+            url(@/assets/images/background-review.jpg);
+        height: calc(80vh - 90px);
+
+        // @media screen and (orientation: portrait) { 
+        //     background-image: linear-gradient(rgba(44, 55, 69, 0.8), rgba(44, 55, 69, 0.6)),
+        //     url(@/assets/images/background-review-portrait.jpg);
+        // }
+    }
     &.program {
         background-image: linear-gradient(rgba(44, 55, 69, 0.8), rgba(44, 55, 69, 0.6)),
             url(@/assets/images/background-program.jpg);
