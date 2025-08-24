@@ -226,7 +226,7 @@ onUnmounted(() => {
                         <NuxtLink to="/review" @click="toggleMobileMenu">Отзывы</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/about">Сведения об образовательной организации</NuxtLink>
+                        <NuxtLink to="/about" @click="toggleMobileMenu">Сведения об образовательной организации</NuxtLink>
                     </li>
                     <!-- <li>
                         <NuxtLink @click="contactsHandler('#contacts')">Контакты</NuxtLink>
