@@ -88,7 +88,7 @@ onUnmounted(() => {
                     <li>
                         <NuxtLink to="/review">Отзывы</NuxtLink>
                     </li>
-                    <li>
+                    <li class="no-wrap">
                         <NuxtLink to="/about">Сведения об образовательной организации</NuxtLink>
                     </li>
                     <!-- <li>
@@ -693,5 +693,16 @@ onUnmounted(() => {
 .v-enter-from,
 .v-leave-to {
     opacity: 0;
+}
+
+
+@media screen and (max-width: 800px) {
+    .no-wrap {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 120px;
+        display: block;
+    }
 }
 </style>
