@@ -33,6 +33,7 @@
         text-align: center;
         text-decoration: none;
         font-size: var(--font-size);
+        border-radius: 30px;
     }
 
     .button,
@@ -53,6 +54,7 @@
         justify-content: center;
         padding: 30px;
         margin: 0 auto;
+        border-radius: 10px;
         h2 {
             color: var(--white);
             text-align: center;
