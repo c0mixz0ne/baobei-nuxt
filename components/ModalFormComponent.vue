@@ -210,6 +210,7 @@ watch(personalData, (newValue) => {
                     font-size: 16px;
                     width: 100%;
                     border: 1px solid var(--pink);
+                    border-radius: 30px;
                 }
             }
             .form-submit {

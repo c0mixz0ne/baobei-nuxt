@@ -182,6 +182,7 @@ watch(personalData, (newValue) => {
                     line-height: 60px;
                     font-size: 16px;
                     width: 100%;
+                    border-radius: 30px;
                 }
             }
             .personal-data {
