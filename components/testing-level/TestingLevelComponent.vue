@@ -94,7 +94,7 @@ const chineseQuestions = [
         correct: 2
     },
     {
-        question: 'Выберите правильное предложение:',
+        question: 'Правильное предложение:',
         answers: [
             '我喝水',
             '我水喝',
