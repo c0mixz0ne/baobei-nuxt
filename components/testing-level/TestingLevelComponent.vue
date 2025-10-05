@@ -190,10 +190,12 @@ const closeTesting = () => {
     currentQuestion.value = 0
     score.value = 0
     showResult.value = false
+    phone.value = ''
     errorPhone.value = ''
     personalData.value = false
     personalDataError.value = false
     isFormSubmitted.value = false
+    formSended.value = false
 }
 
 const formatPhoneHandler = () => {
