@@ -15,6 +15,6 @@
     font-weight: bold;
     width: 100%;
     max-width: 260px;
-    border-radius: 30px;
+    border-radius: 50px;
 }
 </style>

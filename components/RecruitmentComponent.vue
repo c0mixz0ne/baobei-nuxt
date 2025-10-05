@@ -73,7 +73,7 @@
 
 @include breakpoint(xs) {
     .recruitment {
-        padding: 0;
+        padding: 0 15px;
         margin-top: 40px;
 
         .image-container {

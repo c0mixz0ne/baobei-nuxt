@@ -162,6 +162,17 @@ const isSummerCampPage = computed(() => {
     }
 }
 
+@include breakpoint(md) {
+    .footer {
+        .container {
+            &>.links {
+                padding: 10px;
+            }
+            
+        }
+    }
+}
+
 @include breakpoint(sm) {
     .footer {
         padding-bottom: 15px;
@@ -184,6 +195,7 @@ const isSummerCampPage = computed(() => {
                 flex-direction: column;
                 order: 3;
                 margin-bottom: 0;
+                padding: 0;
             }
 
             &>ul {
