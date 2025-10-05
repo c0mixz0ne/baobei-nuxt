@@ -480,8 +480,6 @@ const level = computed(() => {
                         display: block;
                         margin-top: 5px;
                         color: var(--error);
-                        position: absolute;
-                        top: -30px;
                     }
 
                     input {
@@ -559,8 +557,6 @@ const level = computed(() => {
                         .personal-error {
                             margin-top: 5px;
                             color: var(--error);
-                            position: absolute;
-                            bottom: -25px;
                         }
                     }
                 }
