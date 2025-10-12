@@ -36,7 +36,7 @@ useHead({
 		</h2>
 	</WelcomeComponent>
 	<RecruitmentComponent />
-	<!-- <TestingLevelComponent /> -->
+	<TestingLevelComponent />
 	<ServiceComponent />
 	<FreeLessonComponent />
 	<AboutComponent />
