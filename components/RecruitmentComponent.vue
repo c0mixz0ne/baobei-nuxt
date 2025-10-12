@@ -19,7 +19,6 @@
 <style lang="scss" scoped>
 .recruitment {
     padding: 30px;
-    overflow: hidden;
     .button-link {
         color: var(--white);
         background-color: var(--button-pink);
