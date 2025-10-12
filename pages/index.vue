@@ -35,8 +35,8 @@ useHead({
 			чтобы стать сильным и прекрасным
 		</h2>
 	</WelcomeComponent>
-	<TestingLevelComponent />
 	<RecruitmentComponent />
+	<TestingLevelComponent />
 	<ServiceComponent />
 	<FreeLessonComponent />
 	<AboutComponent />
