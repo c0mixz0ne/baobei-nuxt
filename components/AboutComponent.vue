@@ -2,7 +2,7 @@
 import ContainerComponent from '@/components/layout/ContainerComponent.vue'
 </script>
 <template>
-    <section class="about">
+    <section class="about" v-gsap.whenVisible.from='{ autoAlpha: 0, y: -50 }'>
         <ContainerComponent>
             <div class="info">
                 <div class="content">
@@ -27,19 +27,19 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
         <div class="list">
             <ContainerComponent>
                 <ul>
-                    <li>
+                    <li v-gsap.parallax.faster>
                         <h4>7 лет работы</h4>
                         <p>Качественное образование, проверенное временем</p>
                     </li>
-                    <li>
+                    <li v-gsap.parallax.faster>
                         <h4>8 преподавателей</h4>
                         <p>Лучшие преподаватели, постоянно проходящие повышение квалификации</p>
                     </li>
-                    <li>
+                    <li v-gsap.parallax.faster>
                         <h4>Филиал в центре</h4>
                         <p>10 минут ходьбы от метро "Площадь Ленина"</p>
                     </li>
-                    <li>
+                    <li v-gsap.parallax.faster>
                         <h4>900 довольных учеников</h4>
                         <p>Наш главный приоритет — качество образования и комфорт воспитанников</p>
                     </li>
@@ -84,6 +84,8 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
                     vertical-align: middle;
                     object-fit: contain;
                     height: 100%;
+                    border-radius: 10px;
+                    box-shadow: 1px 2px 15px 0px rgba(34, 60, 80, 0.1);
                 }
             }
         }

@@ -2,7 +2,7 @@
 import ContainerComponent from '@/components/layout/ContainerComponent.vue'
 </script>
 <template>
-    <section class="service">
+    <section class="service" v-gsap.whenVisible.from='{ autoAlpha: 0, x: +50 }'>
         <h2>Наши услуги</h2>
         <h3>
             У нас вы найдете все услуги, необходимые для гармоничного и всестороннего развития
@@ -95,8 +95,13 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
                 background-color: var(--card-pink);
                 display: flex;
                 height: 100%;
+                border-radius: 10px;
+                box-shadow: 1px 2px 15px 0px rgba(34, 60, 80, 0.1);
                 .card-image {
                     min-width: 135px;
+                    border-radius: 10px;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
                 }
                 .card-content {
                     width: 100%;

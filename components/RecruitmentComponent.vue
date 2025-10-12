@@ -8,7 +8,7 @@
 // Uncomment if use scroll button
 </script>
 <template>
-    <section class="recruitment">
+    <section class="recruitment" v-gsap.whenVisible.from='{ autoAlpha: 0, x: -50 }'>
         <div class="image-container">
             <h2>Набор в группы на 2025-2026 учебный год</h2>
         </div>
@@ -43,7 +43,7 @@
 
     .image-container {
         background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
-            url(@/assets/images/background2.jpg);
+            url(@/assets/images/background-group.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -65,8 +65,9 @@
         }
 
         @media screen and (orientation: portrait) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
-            url(@/assets/images/background2-portrait.jpg);
+            // background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
+            // url(@/assets/images/background2-portrait.jpg);
+            background-position: 25% center;
         }
     }
 }
@@ -80,11 +81,11 @@
             height: 40svh;
             min-height: 200px;
 
-            @media screen and (orientation: portrait) {
-                background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
-                url(@/assets/images/background2-portrait.jpg);
-                height: 60svh;
-            }
+            // @media screen and (orientation: portrait) {
+            //     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)),
+            //     url(@/assets/images/background2-portrait.jpg);
+            //     height: 60svh;
+            // }
         }
     }
 }

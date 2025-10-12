@@ -2,7 +2,7 @@
 import MainSliderComponent from '@/components/MainSliderComponent.vue'
 </script>
 <template>
-    <section class="carousel">
+    <section class="carousel" v-gsap.whenVisible.from='{ autoAlpha: 0, y: -50 }'>
         <MainSliderComponent />
     </section>
 </template>

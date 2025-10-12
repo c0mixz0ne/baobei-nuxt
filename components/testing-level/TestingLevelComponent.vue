@@ -432,7 +432,7 @@ const level = computed(() => {
         background-size: cover;
         background-position: center center;
         border-radius: 10px;
-        box-shadow: 0px 0px 17px -6px rgba(34, 60, 80, 0.2);
+        box-shadow: 1px 2px 15px 0px rgba(34, 60, 80, 0.1);
         padding: 30px;
         display: flex;
         flex-direction: column;
