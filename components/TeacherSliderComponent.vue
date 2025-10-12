@@ -6,11 +6,10 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
 
 import teacher0 from '@/assets/images/av.jpg'
 import teacher1 from '@/assets/images/ed.jpg'
-import teacher2 from '@/assets/images/sm.jpg'
-import teacher3 from '@/assets/images/ba.jpg'
-import teacher4 from '@/assets/images/avl.jpg'
-import teacher5 from '@/assets/images/sk.jpg'
-import teacher6 from '@/assets/images/vv.jpg'
+import teacher2 from '@/assets/images/ba.jpg'
+import teacher3 from '@/assets/images/sp.jpg'
+import teacher4 from '@/assets/images/ua.jpg'
+import teacher5 from '@/assets/images/ks.jpg'
 
 // Carousel configuration
 const config = {
@@ -56,7 +55,7 @@ const cards = [
         id: 0,
         photo: teacher0,
         name: 'Вероника',
-        text: 'Руководитель детского центра Методист экзаменационного направления'
+        text: 'Руководитель детского центра. Методист экзаменационного направления'
     },
     {
         id: 1,
@@ -67,32 +66,26 @@ const cards = [
     {
         id: 2,
         photo: teacher2,
-        name: 'Маргарита',
-        text: 'Преподаватель индивидуальных и групповых занятий по английскому языку'
-    },
-    {
-        id: 3,
-        photo: teacher3,
         name: 'Александра',
         text: 'Преподаватель индивидуальных и групповых занятий по английскому языку'
     },
+    // {
+    //     id: 3,
+    //     photo: teacher3,
+    //     name: 'Полина',
+    //     text: 'Преподаватель индивидуальных и групповых занятий по китайскому языку'
+    // },
     {
         id: 4,
         photo: teacher4,
-        name: 'Владимир',
+        name: 'Алла',
         text: 'Преподаватель индивидуальных и групповых занятий по китайскому языку'
     },
     {
         id: 5,
         photo: teacher5,
-        name: 'Кристина',
-        text: 'Преподаватель занятий по русскому языку'
-    },
-    {
-        id: 6,
-        photo: teacher6,
-        name: 'Виктория',
-        text: 'Преподаватель индивидуальных и групповых занятий по английскому и китайскому языку'
+        name: 'Светлана',
+        text: 'Преподаватель индивидуальных и групповых занятий по английскому языку'
     }
 ]
 

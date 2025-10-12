@@ -40,7 +40,7 @@ useHead({
 	<ServiceComponent />
 	<FreeLessonComponent />
 	<AboutComponent />
-	<!-- <TeacherComponent /> -->
+	<TeacherComponent />
 	<FormComponent />
 	<!-- <MapComponent /> -->
 	<ModalInfoComponent>
