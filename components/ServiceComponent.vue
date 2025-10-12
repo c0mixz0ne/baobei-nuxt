@@ -2,7 +2,7 @@
 import ContainerComponent from '@/components/layout/ContainerComponent.vue'
 </script>
 <template>
-    <section class="service" v-gsap.whenVisible.from='{ autoAlpha: 0, x: +50 }'>
+    <section class="service" v-gsap.whenVisible.from='{ autoAlpha: 0, y: +50 }'>
         <h2>Наши услуги</h2>
         <h3>
             У нас вы найдете все услуги, необходимые для гармоничного и всестороннего развития
@@ -202,6 +202,7 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
                     flex-direction: column;
                     .card-image {
                         min-height: 300px;
+                        border-radius: 10px 10px 0 0;
                     }
                 }
             }

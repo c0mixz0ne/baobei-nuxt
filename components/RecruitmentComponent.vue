@@ -8,7 +8,7 @@
 // Uncomment if use scroll button
 </script>
 <template>
-    <section class="recruitment" v-gsap.whenVisible.from='{ autoAlpha: 0, x: -50 }'>
+    <section class="recruitment" v-gsap.whenVisible.from='{ autoAlpha: 0, y: -50 }'>
         <div class="image-container">
             <h2>Набор в группы на 2025-2026 учебный год</h2>
         </div>
@@ -19,6 +19,7 @@
 <style lang="scss" scoped>
 .recruitment {
     padding: 30px;
+    overflow: hidden;
     .button-link {
         color: var(--white);
         background-color: var(--button-pink);
