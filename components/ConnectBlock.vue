@@ -25,7 +25,7 @@ const openModal = () => {
 </template>
 <style lang="scss" scoped>
 .connect {
-    background-color: var(--connect-background);
+    background-color: var(--white);
     padding: 120px 15px;
     display: flex;
     flex-direction: column;

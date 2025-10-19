@@ -702,7 +702,7 @@ const level = computed(() => {
         &--three {
             font-size: 70px;
             transform: translateX(-50%) rotate(15deg);
-            color: var(--pink);
+            color: var(--ligh-blue);
         }
     }
 }

@@ -75,8 +75,50 @@
         margin-top: 30px;
     }
 
+    :slotted(.button-link) {
+        color: var(--white);
+        background-color: var(--button-pink);
+        border: none;
+        padding: 20px;
+        display: block;
+        margin: 0 auto;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+        max-width: 350px;
+        text-align: center;
+        text-decoration: none;
+        font-size: var(--font-size);
+        border-radius: 60px;
+        margin-top: 100px;
+        font-size: 25px;
+        @include breakpoint(lg) {
+            font-size: 22px;
+            max-width: 320px;
+            margin-top: 80px;
+        }
+        @include breakpoint(md) {
+            font-size: 20px;
+            max-width: 300px;
+            margin-top: 60px;
+        }
+        @include breakpoint(sm) {
+            font-size: 18px;
+            max-width: 280px;
+            margin-top: 40px;
+        }
+        @include breakpoint(xs) {
+            max-width: 250px;
+            margin-top: 30px
+        }
+    }
+
     @media screen and (orientation: landscape) {
         min-height: 380px;
+
+        :slotted(.button-link) {
+            
+        }
     }
 
     @media screen and (orientation: portrait) {

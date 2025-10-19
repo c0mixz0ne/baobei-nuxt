@@ -195,8 +195,8 @@ const prev = () => carouselRef.value.prev()
         min-height: 270px;
         object-fit: cover;
         max-height: 400px;
-        border-top: 1px solid var(--border-pink);
-        border-left: 1px solid var(--border-pink);
+        border-top: 1px solid var(--ligh-blue);
+        border-left: 1px solid var(--ligh-blue);
     }
     .slider-content {
         padding: 18px 20px;

@@ -124,7 +124,7 @@ import ContainerComponent from '@/components/layout/ContainerComponent.vue'
                     }
                 }
                 .card-link {
-                    color: var(--card-gray);
+                    color: var(--white);
                     font-size: 16px;
                     font-weight: bold;
                     text-decoration: none;
