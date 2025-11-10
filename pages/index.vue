@@ -34,7 +34,7 @@ useHead({
 			Ребёнок - это как растущее растение, которое нуждается в уходе, внимании и развитии,
 			чтобы стать сильным и прекрасным
 		</h2>
-		<NuxtLink v-gsap.magnetic.weak class="button-link" to="/group">Запись на занятия</NuxtLink>
+		<NuxtLink v-gsap.magnetic.weak class="button-link" to="/group">Записаться на занятия</NuxtLink>
 	</WelcomeComponent>
 	<!-- <RecruitmentComponent /> -->
 	<TestingLevelComponent />
@@ -45,6 +45,6 @@ useHead({
 	<FormComponent />
 	<!-- <MapComponent /> -->
 	<ModalInfoComponent>
-		Вступай в нашу группу в Телеграм! Всегда актуальные новости, конкурсы и многое другое
+		Вступайте в нашу группу в Телеграм! Всегда актуальные новости, конкурсы и многое другое
 	</ModalInfoComponent>
 </template>

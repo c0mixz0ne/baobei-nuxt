@@ -12,8 +12,8 @@
         <div class="image-container">
             <h2>Набор в группы на 2025-2026 учебный год</h2>
         </div>
-        <NuxtLink class="button-link" to="/group">Запись на занятия</NuxtLink>
-        <!-- <ButtonComponent @action="handlerAction"> Запись на занятия </ButtonComponent> -->
+        <NuxtLink class="button-link" to="/group">Записаться на занятия</NuxtLink>
+        <!-- <ButtonComponent @action="handlerAction"> Записаться на занятия </ButtonComponent> -->
     </section>
 </template>
 <style lang="scss" scoped>

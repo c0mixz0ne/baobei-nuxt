@@ -255,7 +255,7 @@ watch(personalData, (newValue) => {
             button {
                 margin: 0;
                 flex: 1;
-                font-size: var(--font-size);
+                font-size: var(--font-size-button);
             }
         }
     }

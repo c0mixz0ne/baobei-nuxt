@@ -9,7 +9,7 @@ const openModal = () => {
 </script>
 <template>
     <section class="connect">
-        <h4>По всем вопросам свяжитесь с нами любым удобным способом:</h4>
+        <h4>По всем вопросам свяжитесь с нами любым удобным для вас способом:</h4>
         <ul>
             <li>
                 E-mail: <NuxtLink href="mailto:baobei.nsk@gmail.com"><b>baobei.nsk@gmail.com</b></NuxtLink>

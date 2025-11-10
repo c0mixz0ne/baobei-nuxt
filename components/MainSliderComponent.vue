@@ -13,7 +13,7 @@ export default {
             slides: [
                 {
                     background: `linear-gradient(rgba(44,55,69,0.8), rgba(44,55,69,0.6)), url(${slide1})`,
-                    title: 'Запишись на бесплатный пробный урок',
+                    title: 'Запишитесь на бесплатный пробный урок',
                     text: 'Запись в группы и на индивидуальные занятия ведется круглогодично'
                 },
                 {
@@ -43,7 +43,7 @@ export default {
         stopAutoPlay() {
             clearInterval(this.intervalId)
         },
-        buttonClick(target) {
+        buttonClick(target: string) {
             smoothScroll(target)
         }
     }
@@ -93,12 +93,12 @@ export default {
 
     .slide-button {
         background: transparent;
-        border-radius: 30px;
-        font-size: 16px;
-        color: #fff;
-        border: 2px solid #f0d9db;
+        border-radius: 35px;
+        color: var(--white);
+        border: 2px solid var(--pink);
         padding: 20px 60px;
         cursor: pointer;
+        font-size: var(--font-size-button);
     }
 }
 

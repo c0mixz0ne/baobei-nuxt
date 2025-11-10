@@ -609,7 +609,7 @@ watch(personalData, (newValue) => {
                         <span class="personal-error" v-if="isFormSubmitted && personalDataError">Необходимо согласие на обработку персональных данных</span>
                     </label>
                 </div>
-                <ButtonComponent type="submit">Отправить форму</ButtonComponent>
+                <ButtonComponent type="submit">Отправить</ButtonComponent>
 
                 <span v-if="formError" class="form-error"
                     >Пожалуйста, заполните все обязательные поля</span
@@ -951,6 +951,10 @@ watch(personalData, (newValue) => {
                         text-align: center;
                     }
                 }
+        }
+
+        button {
+            font-size: var(--font-size-button);
         }
     }
 }
