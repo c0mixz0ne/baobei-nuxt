@@ -34,6 +34,24 @@ const isSummerCampPage = computed(() => {
             </div>
             <ul>
                 <li>
+                    <NuxtLink external target="_blank" href="https://max.ru/id543314713600_biz">
+                        <!-- <img src="@/assets/icons/vk.svg" alt="МАКС" /> -->
+                        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+
+                        <path fill="#fff"
+
+                            d="M25 2C12.309295 2 2 12.309295 2 25C2 37.690705 12.309295 48 25 48C37.690705 48 48 37.690705 48 25C48 12.309295 37.690705 2 25 2ZM25 4C36.609824 4 46 13.390176 46 25C46 36.609824 36.609824 46 25 46C13.390176 46 4 36.609824 4 25C4 13.390176 13.390176 4 25 4Z"/>
+
+                        
+
+                        <path fill="none" stroke="#fff" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"
+
+                            d="M25.1 14.8C17.5 14.8 11.5 19.35 11.5 25.15C11.5 26.7 11.93 28.17 12.7 29.45L12.15 34.53C12.05 35.45 13.11 36.03 13.83 35.46L17.71 32.43C19.84 33.85 22.45 34.66 25.26 34.66C32.61 34.66 38.51 30.31 38.51 24.88C38.51 19.25 32.53 14.8 25.1 14.8Z"/>
+
+                        </svg>
+                    </NuxtLink>
+                </li>
+                <li>
                     <NuxtLink external target="_blank" href="https://vk.com/baobeinsk">
                         <!-- <img src="@/assets/icons/vk.svg" alt="VK" /> -->
                         <svg viewBox="0 0 50 50">

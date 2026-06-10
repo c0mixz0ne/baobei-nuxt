@@ -18,7 +18,7 @@ const closeModal = () => {
     <ContainerComponent>
         <div class="info">
             <slot></slot>
-            <NuxtLink href="https://t.me/baobeinsk" target="_blank">
+            <NuxtLink href="https://max.ru/id543314713600_biz" target="_blank">
                 Вступить
             </NuxtLink>
             <button @click="closeModal">
