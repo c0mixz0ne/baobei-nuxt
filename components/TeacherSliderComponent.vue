@@ -4,7 +4,7 @@ import { Carousel, Slide } from 'vue3-carousel'
 import { ref } from 'vue'
 import ContainerComponent from '@/components/layout/ContainerComponent.vue'
 
-import teacher0 from '@/assets/images/av.jpg'
+import teacher0 from '@/assets/images/ue.jpg'
 import teacher1 from '@/assets/images/ed.jpg'
 import teacher2 from '@/assets/images/ba.jpg'
 import teacher3 from '@/assets/images/sp.jpg'
@@ -54,7 +54,7 @@ const cards = [
     {
         id: 0,
         photo: teacher0,
-        name: 'Вероника',
+        name: 'Елена',
         text: 'Руководитель детского центра. Методист экзаменационного направления'
     },
     {
